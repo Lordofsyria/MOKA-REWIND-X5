@@ -39,13 +39,13 @@ function connected(){document.getElementById('dot').classList.add('ok');document
 function disconnected(){document.getElementById('dot').classList.remove('ok');document.getElementById('status').textContent='غير متصل — سجّل دخول Google';document.getElementById('signin').style.display='inline-block';document.getElementById('signout').style.display='none';document.getElementById('load').disabled=true;document.getElementById('save').disabled=true}
 async function init() {
   try {
-    if (!API_KEY || API_KEY === 'ضع api حقيقي هنا') {
+    if (!API_KEY || API_KEY === 'AIzaSyADx8qKvD-4nHAyi4r6yrqJJcaygDxohTw') {
       throw new Error(
         'لم يتم وضع API Key الحقيقي داخل ملف index.html'
       );
     }
 
-    if (!CLIENT_ID || CLIENT_ID === 'لم يتم وضع كلاينت اي دي') {
+    if (!CLIENT_ID || CLIENT_ID === '670203375895-d76mtp1bjcmqp6emjinh5oint494d433.apps.googleusercontent.com') {
       throw new Error(
         'لم يتم وضع Client ID الصحيح داخل ملف index.html'
       );
