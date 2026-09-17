@@ -3,486 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LORDS OF SYRIA — Google Drive Sync</title>
-
-  <script
-    src="https://accounts.google.com/gsi/client"
-    async
-    defer>
-  </script>
-
+  <meta name="theme-color" content="#0a1428">
+  <title>LORDS OF SYRIA — إدارة الكلانات</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
-    :root {
-      --bg: #0b0f14;
-      --panel: #121821;
-      --line: #263244;
-      --gold: #ffd56a;
-      --muted: #9aa6b7;
-      --green: #3ddc97;
-      --blue: #4285f4;
-      --red: #ff6868;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: #e8eef7;
-      font-family: system-ui, Tahoma, Arial, sans-serif;
-      background:
-        radial-gradient(900px 500px at 10% -10%, #1a2433, var(--bg) 65%);
-    }
-
-    header {
-      text-align: center;
-      padding: 32px 16px 20px;
-    }
-
-    h1 {
-      margin: 0;
-      color: var(--gold);
-      font-size: clamp(28px, 6vw, 48px);
-      letter-spacing: 2px;
-    }
-
-    .subtitle {
-      margin-top: 8px;
-      color: var(--muted);
-    }
-
-    .container {
-      width: min(940px, calc(100% - 32px));
-      margin: 0 auto;
-      padding-bottom: 36px;
-    }
-
-    .panel {
-      margin-top: 16px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: linear-gradient(180deg, #121821, #0e131b);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, .35);
-    }
-
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--muted);
-    }
-
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--red);
-    }
-
-    .dot.ok {
-      background: var(--green);
-      box-shadow: 0 0 12px rgba(61, 220, 151, .7);
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    button {
-      padding: 10px 15px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      color: #e8eef7;
-      background: #1b2533;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-    }
-
-    .google {
-      color: white;
-      border-color: #2a56c6;
-      background: linear-gradient(180deg, #4285f4, #3367d6);
-    }
-
-    .save {
-      color: #241900;
-      border-color: #c99600;
-      background: linear-gradient(180deg, #f5c542, #ffb700);
-    }
-
-    .load {
-      color: #032417;
-      border-color: #1f8a62;
-      background: linear-gradient(180deg, #6ff0c2, #3ddc97);
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 230px;
-      margin-top: 14px;
-      padding: 12px;
-      resize: vertical;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      color: #e8eef7;
-      background: #0b1119;
-      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-      direction: ltr;
-    }
-
-    .note {
-      margin-top: 14px;
-      padding: 12px;
-      border: 1px solid #35445b;
-      border-radius: 12px;
-      color: #cdd6e4;
-      line-height: 1.7;
-      background: #171f2d;
-    }
-
-    .error {
-      margin-top: 14px;
-      padding: 12px;
-      border: 1px solid #8f3333;
-      border-radius: 12px;
-      color: #ffd0d0;
-      background: #351717;
-      display: none;
-      white-space: pre-wrap;
-    }
+    :root{--bg:#07111f;--bg2:#0b1f3d;--panel:#101d31;--panel2:#142846;--line:#2b4d77;--text:#edf5ff;--muted:#a8bbd4;--gold:#ffd36b;--cyan:#4ce1ff;--green:#4ee19a;--red:#ff7474;--blue:#477ff5;--shadow:0 18px 42px rgba(0,0,0,.35)}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;color:var(--text);font-family:Tahoma,Arial,system-ui,sans-serif;background:radial-gradient(900px 520px at 50% -100px,#1c5cc5 0%,#0d2b57 34%,var(--bg) 78%)}
+    button,input,select,textarea{font:inherit} button{cursor:pointer}.app{width:min(1240px,calc(100% - 28px));margin:auto;padding:26px 0 46px}.hero{text-align:center;padding:12px 0 20px}.hero h1{margin:0;color:var(--gold);font-size:clamp(30px,5vw,54px);letter-spacing:3px;text-shadow:0 3px 18px rgba(255,211,107,.25)}.hero p{color:var(--muted);margin:8px 0 0}.topbar,.card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(20,40,70,.94),rgba(9,20,37,.95));box-shadow:var(--shadow);border-radius:18px}.topbar{padding:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}.connection{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:14px}.dot{width:11px;height:11px;border-radius:50%;background:var(--red)}.dot.ok{background:var(--green);box-shadow:0 0 13px var(--green)}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #396495;background:#1a3356;color:var(--text);font-weight:800;padding:10px 14px;border-radius:10px}.btn:hover{filter:brightness(1.12)}.btn:disabled{opacity:.52;cursor:not-allowed}.btn.primary{background:linear-gradient(180deg,#4e8aff,#2962d5);border-color:#79a7ff}.btn.save{background:linear-gradient(180deg,#f7d36a,#e9ab21);border-color:#ffd96c;color:#302000}.btn.success{background:linear-gradient(180deg,#68efbf,#34bd83);border-color:#79f3c5;color:#052618}.btn.danger{background:#692832;border-color:#a64855}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{border:1px solid var(--line);background:#10213b;color:var(--muted);border-radius:10px;padding:10px 16px;font-weight:800}.tab.active{background:#2a5ca6;color:#fff;border-color:#6ea3ff}.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat{padding:16px}.stat .value{font-size:29px;font-weight:900;color:var(--gold);margin-top:6px}.stat .label{color:var(--muted);font-size:14px}.section-head{display:flex;gap:12px;justify-content:space-between;align-items:center;margin:20px 0 12px}.section-head h2{margin:0;font-size:21px}.card{padding:16px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:13px;color:var(--muted)}input,select,textarea{width:100%;background:#081628;border:1px solid #31557e;border-radius:9px;color:#eef5ff;padding:10px}textarea{min-height:90px;resize:vertical}.full{grid-column:1/-1}.form-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.list{display:grid;gap:10px}.item{border:1px solid #29496e;background:rgba(5,19,36,.62);border-radius:12px;padding:13px;display:flex;gap:12px;align-items:center;justify-content:space-between}.item-title{font-weight:900}.item-meta{margin-top:4px;color:var(--muted);font-size:13px}.item-actions{display:flex;gap:7px;flex-wrap:wrap}.mini{font-size:13px;padding:7px 9px;border-radius:8px}.badge{display:inline-block;border:1px solid #5c7aa1;background:#193458;color:#d5e8ff;padding:3px 8px;border-radius:999px;font-size:12px;margin-left:5px}.empty{color:var(--muted);text-align:center;padding:28px 12px;border:1px dashed #31557e;border-radius:12px}.notice{margin-top:15px;padding:12px;border:1px solid #386595;border-radius:12px;background:#112a49;color:#d3e9ff}.notice.error{border-color:#a7444f;background:#3a1920;color:#ffd6da}.notice.ok{border-color:#2f946c;background:#103729;color:#c9ffe8}.hidden{display:none!important}.rank{color:var(--gold);font-weight:900}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:right;border-bottom:1px solid #2a496d;padding:11px 9px}th{color:var(--gold);font-size:13px}.muted{color:var(--muted);font-size:13px}.footer{text-align:center;color:#88a1c2;font-size:13px;padding:20px 0 0}.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.63);display:none;align-items:center;justify-content:center;padding:16px;z-index:5}.modal-backdrop.show{display:flex}.modal{width:min(620px,100%);max-height:92vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.modal-head h3{margin:0}.icon-btn{padding:6px 10px;border:0;background:transparent;color:#fff;font-size:24px}@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}}@media(max-width:560px){.app{width:min(100% - 18px,1240px);padding-top:14px}.topbar{justify-content:center}.connection{width:100%;justify-content:center}.actions{justify-content:center}.grid,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.item{align-items:flex-start;flex-direction:column}.item-actions{width:100%}.item-actions .btn{flex:1}.hero h1{letter-spacing:1px}}
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>👑 LORDS OF SYRIA</h1>
-    <div class="subtitle">ربط نظيف مع Google Drive</div>
-  </header>
-
-  <main class="container">
-    <section class="panel">
-      <div class="status">
-        <span id="statusDot" class="dot"></span>
-        <span id="statusText">غير متصل بـ Google Drive</span>
-      </div>
-
+  <main class="app">
+    <header class="hero"><h1>LORDS OF SYRIA 👑</h1><p>نظام إدارة الكلانات واللاعبين والمكافآت مع مزامنة Google Drive</p></header>
+    <section class="topbar">
+      <div class="connection"><span id="statusDot" class="dot"></span><span id="statusText">غير متصل بـ Google Drive</span></div>
       <div class="actions">
-        <button id="loginButton" class="google">
-          تسجيل دخول Google
-        </button>
-
-        <button id="loadButton" class="load" disabled>
-          تحميل من Drive
-        </button>
-
-        <button id="saveButton" class="save" disabled>
-          حفظ إلى Drive
-        </button>
-
-        <button id="logoutButton" disabled>
-          تسجيل الخروج
-        </button>
+        <button id="loginButton" class="btn primary">تسجيل دخول Google</button>
+        <button id="loadButton" class="btn success" disabled>تحميل من Drive</button>
+        <button id="saveButton" class="btn save" disabled>حفظ إلى Drive</button>
+        <button id="exportButton" class="btn">تصدير نسخة احتياطية</button>
+        <button id="importButton" class="btn">استيراد نسخة</button>
+        <button id="logoutButton" class="btn danger" disabled>تسجيل الخروج</button>
+        <input id="importFile" class="hidden" type="file" accept="application/json">
       </div>
-
-      <textarea id="dataBox">{
-  "clans": [],
-  "players": [],
-  "rewards": []
-}</textarea>
-
-      <div class="note">
-        هذا اختبار للمزامنة فقط. بعد نجاح الحفظ والتحميل سنعيد إدخال نفس الربط داخل برنامج الكلانات الكامل.
-      </div>
-
-      <div id="errorBox" class="error"></div>
     </section>
+    <div id="notice" class="notice hidden"></div>
+    <nav class="tabs">
+      <button class="tab active" data-page="dashboard">الرئيسية</button>
+      <button class="tab" data-page="clans">الكلانات</button>
+      <button class="tab" data-page="players">اللاعبون</button>
+      <button class="tab" data-page="rewards">المكافآت</button>
+      <button class="tab" data-page="settings">الإعدادات</button>
+    </nav>
+    <section id="dashboard" class="page active">
+      <div class="grid">
+        <div class="card stat"><div class="label">إجمالي الكلانات</div><div id="statClans" class="value">0</div></div>
+        <div class="card stat"><div class="label">إجمالي اللاعبين</div><div id="statPlayers" class="value">0</div></div>
+        <div class="card stat"><div class="label">إجمالي النقاط</div><div id="statPoints" class="value">0</div></div>
+        <div class="card stat"><div class="label">المكافآت المسجلة</div><div id="statRewards" class="value">0</div></div>
+      </div>
+      <div class="two-col" style="margin-top:16px">
+        <div class="card"><div class="section-head"><h2>أفضل اللاعبين</h2><span class="muted">حسب النقاط</span></div><div id="topPlayers" class="list"></div></div>
+        <div class="card"><div class="section-head"><h2>ملخص الكلانات</h2><span class="muted">عدد الأعضاء والنقاط</span></div><div id="clanSummary" class="list"></div></div>
+      </div>
+    </section>
+    <section id="clans" class="page">
+      <div class="section-head"><h2>إدارة الكلانات</h2><button id="addClanButton" class="btn primary">+ إضافة كلان</button></div>
+      <div id="clansList" class="list"></div>
+    </section>
+    <section id="players" class="page">
+      <div class="section-head"><h2>إدارة اللاعبين</h2><button id="addPlayerButton" class="btn primary">+ إضافة لاعب</button></div>
+      <div class="card table-wrap"><table><thead><tr><th>#</th><th>اللاعب</th><th>الكلان</th><th>النقاط</th><th>الدور</th><th>الإجراءات</th></tr></thead><tbody id="playersTable"></tbody></table></div>
+    </section>
+    <section id="rewards" class="page">
+      <div class="section-head"><h2>سجل المكافآت</h2><button id="addRewardButton" class="btn primary">+ إضافة مكافأة</button></div>
+      <div id="rewardsList" class="list"></div>
+    </section>
+    <section id="settings" class="page">
+      <div class="two-col">
+        <div class="card"><h2 style="margin-top:0">حول المزامنة</h2><p class="muted" style="line-height:1.8">يتم حفظ البيانات داخل ملف واحد في Google Drive باسم <code>lords_of_syria_data.json</code>. استخدم زر الحفظ بعد التعديلات، ثم استخدم التحميل على أي جهاز آخر مسجّل بالحساب نفسه.</p><button id="clearDataButton" class="btn danger">مسح البيانات المحلية</button></div>
+        <div class="card"><h2 style="margin-top:0">إعداد OAuth</h2><p class="muted" style="line-height:1.8">إذا كانت نسخة الاختبار السابقة تعمل، احتفظ بقيمة Client ID نفسها أدناه. لا تضع client secret أو API key في هذا الملف.</p><div class="field"><label>Google OAuth Client ID</label><input id="clientIdInput" dir="ltr" placeholder="ضع Client ID الموجود في نسختك السابقة"></div><div class="form-actions"><button id="applyClientButton" class="btn primary">تطبيق Client ID</button></div></div>
+      </div>
+    </section>
+    <div class="footer">LORDS OF SYRIA — بياناتك تبقى تحت حساب Google Drive الخاص بك.</div>
   </main>
-
+  <div id="modalBackdrop" class="modal-backdrop"><section class="modal card"><div class="modal-head"><h3 id="modalTitle">إضافة</h3><button id="closeModal" class="icon-btn">×</button></div><form id="editorForm"></form></section></div>
   <script>
-    const CLIENT_ID =
-      '670203375895-d76mtp1bjcmqp6emjinh5oint494d433.apps.googleusercontent.com';
-
-    const SCOPE =
-      'https://www.googleapis.com/auth/drive.file';
-
-    const FILE_NAME =
-      'lords_of_syria_data.json';
-
-    let tokenClient;
-    let accessToken = '';
-    let driveFileId = '';
-
-    const statusDot = document.getElementById('statusDot');
-    const statusText = document.getElementById('statusText');
-    const loginButton = document.getElementById('loginButton');
-    const loadButton = document.getElementById('loadButton');
-    const saveButton = document.getElementById('saveButton');
-    const logoutButton = document.getElementById('logoutButton');
-    const dataBox = document.getElementById('dataBox');
-    const errorBox = document.getElementById('errorBox');
-
-    function showError(error) {
-      const message =
-        error?.error?.message ||
-        error?.message ||
-        String(error);
-
-      errorBox.textContent = message;
-      errorBox.style.display = 'block';
-
-      console.error(error);
+    const SCOPE='https://www.googleapis.com/auth/drive.file';
+    const FILE_NAME='lords_of_syria_data.json';
+    const STORE_KEY='lords_of_syria_full_v1';
+    const CLIENT_STORE_KEY='lords_of_syria_client_id';
+    let state={version:1,clans:[],players:[],rewards:[],updatedAt:null};
+    let accessToken='',driveFileId='',tokenClient=null;
+    const $=id=>document.getElementById(id);
+    const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    function id(){return (crypto.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2));}
+    function num(v){const n=Number(v);return Number.isFinite(n)?n:0;}
+    function saveLocal(){state.updatedAt=new Date().toISOString();localStorage.setItem(STORE_KEY,JSON.stringify(state));render();}
+    function loadLocal(){try{const data=JSON.parse(localStorage.getItem(STORE_KEY));if(data&&typeof data==='object')state={version:1,clans:Array.isArray(data.clans)?data.clans:[],players:Array.isArray(data.players)?data.players:[],rewards:Array.isArray(data.rewards)?data.rewards:[],updatedAt:data.updatedAt||null};}catch(e){console.warn(e)}}
+    function notice(text,type=''){const n=$('notice');n.textContent=text;n.className='notice '+type;n.classList.remove('hidden');clearTimeout(window.noticeTimer);window.noticeTimer=setTimeout(()=>n.classList.add('hidden'),5000)}
+    function connected(on){$('statusDot').classList.toggle('ok',on);$('loadButton').disabled=!on;$('saveButton').disabled=!on;$('logoutButton').disabled=!on;$('loginButton').textContent=on?'تم تسجيل الدخول':'تسجيل دخول Google';}
+    function setStatus(t){$('statusText').textContent=t}
+    function playerClan(p){return state.clans.find(c=>c.id===p.clanId)}
+    function render(){
+      const total=state.players.reduce((s,p)=>s+num(p.points),0);$('statClans').textContent=state.clans.length;$('statPlayers').textContent=state.players.length;$('statPoints').textContent=total.toLocaleString('ar');$('statRewards').textContent=state.rewards.length;
+      const sorted=[...state.players].sort((a,b)=>num(b.points)-num(a.points)).slice(0,5);$('topPlayers').innerHTML=sorted.length?sorted.map((p,i)=>`<div class="item"><div><span class="rank">#${i+1}</span> <span class="item-title">${esc(p.name)}</span><div class="item-meta">${esc(playerClan(p)?.name||'بدون كلان')} · ${num(p.points).toLocaleString('ar')} نقطة</div></div></div>`).join(''):'<div class="empty">لا يوجد لاعبون حتى الآن</div>';
+      $('clanSummary').innerHTML=state.clans.length?state.clans.map(c=>{const ps=state.players.filter(p=>p.clanId===c.id);const pts=ps.reduce((s,p)=>s+num(p.points),0);return `<div class="item"><div><div class="item-title">${esc(c.name)}</div><div class="item-meta">القائد: ${esc(c.leader||'غير محدد')} · ${ps.length} لاعب</div></div><div class="rank">${pts.toLocaleString('ar')} نقطة</div></div>`}).join(''):'<div class="empty">أضف كلانك الأول لعرض الملخص</div>';
+      $('clansList').innerHTML=state.clans.length?state.clans.map(c=>{const ps=state.players.filter(p=>p.clanId===c.id);return `<article class="item"><div><div class="item-title">${esc(c.name)} ${c.tag?`<span class="badge">${esc(c.tag)}</span>`:''}</div><div class="item-meta">القائد: ${esc(c.leader||'غير محدد')} · ${ps.length} عضو${c.description?` · ${esc(c.description)}`:''}</div></div><div class="item-actions"><button class="btn mini" onclick="editClan('${c.id}')">تعديل</button><button class="btn mini danger" onclick="deleteClan('${c.id}')">حذف</button></div></article>`}).join(''):'<div class="empty">لا توجد كلانات. اضغط «إضافة كلان» للبدء.</div>';
+      const players=[...state.players].sort((a,b)=>num(b.points)-num(a.points));$('playersTable').innerHTML=players.length?players.map((p,i)=>`<tr><td class="rank">${i+1}</td><td><b>${esc(p.name)}</b><div class="muted">${esc(p.note||'')}</div></td><td>${esc(playerClan(p)?.name||'—')}</td><td class="rank">${num(p.points).toLocaleString('ar')}</td><td>${esc(p.role||'عضو')}</td><td><button class="btn mini" onclick="editPlayer('${p.id}')">تعديل</button> <button class="btn mini danger" onclick="deletePlayer('${p.id}')">حذف</button></td></tr>`).join(''):'<tr><td colspan="6"><div class="empty">لا يوجد لاعبون حتى الآن</div></td></tr>';
+      $('rewardsList').innerHTML=state.rewards.length?[...state.rewards].sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).map(r=>`<article class="item"><div><div class="item-title">${esc(r.title)} ${r.playerId?`<span class="badge">${esc(state.players.find(p=>p.id===r.playerId)?.name||'لاعب محذوف')}</span>`:''}</div><div class="item-meta">${r.date?esc(r.date):'بدون تاريخ'}${r.details?` · ${esc(r.details)}`:''}</div></div><div class="item-actions"><button class="btn mini" onclick="editReward('${r.id}')">تعديل</button><button class="btn mini danger" onclick="deleteReward('${r.id}')">حذف</button></div></article>`).join(''):'<div class="empty">لا توجد مكافآت مسجلة حتى الآن</div>';
     }
-
-    function clearError() {
-      errorBox.textContent = '';
-      errorBox.style.display = 'none';
-    }
-
-    function setConnected() {
-      statusDot.classList.add('ok');
-      statusText.textContent = 'متصل بـ Google Drive';
-
-      loadButton.disabled = false;
-      saveButton.disabled = false;
-      logoutButton.disabled = false;
-    }
-
-    function setDisconnected() {
-      statusDot.classList.remove('ok');
-      statusText.textContent = 'غير متصل بـ Google Drive';
-
-      loadButton.disabled = true;
-      saveButton.disabled = true;
-      logoutButton.disabled = true;
-    }
-
-    function validateJson() {
-      try {
-        return JSON.parse(dataBox.value);
-      } catch (error) {
-        throw new Error('البيانات داخل المربع ليست JSON صالحًا.');
-      }
-    }
-
-    function initializeGoogle() {
-      if (
-        !CLIENT_ID ||
-        CLIENT_ID === 'ضع_CLIENT_ID_الجديد_هنا'
-      ) {
-        showError(
-          'ضع Client ID الحقيقي داخل const CLIENT_ID أولًا.'
-        );
-        return;
-      }
-
-      if (!window.google?.accounts?.oauth2) {
-        showError(
-          'مكتبة Google لم تُحمّل بعد. حدّث الصفحة ثم أعد المحاولة.'
-        );
-        return;
-      }
-
-      tokenClient =
-        google.accounts.oauth2.initTokenClient({
-          client_id: CLIENT_ID,
-          scope: SCOPE,
-
-          callback: async (response) => {
-            if (response.error) {
-              showError(response);
-              return;
-            }
-
-            clearError();
-
-            accessToken = response.access_token;
-
-            setConnected();
-
-            await findExistingFile();
-          }
-        });
-    }
-
-    function login() {
-      clearError();
-
-      if (!tokenClient) {
-        initializeGoogle();
-      }
-
-      if (!tokenClient) {
-        return;
-      }
-
-      tokenClient.requestAccessToken({
-        prompt: 'consent'
-      });
-    }
-
-    async function findExistingFile() {
-      try {
-        const response = await fetch(
-          'https://www.googleapis.com/drive/v3/files?' +
-          new URLSearchParams({
-            q: `name='${FILE_NAME}' and trashed=false`,
-            spaces: 'drive',
-            fields: 'files(id,name,modifiedTime)'
-          }),
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`
-            }
-          }
-        );
-
-        const result = await response.json();
-
-        if (!response.ok) {
-          throw result;
-        }
-
-        if (result.files?.length) {
-          driveFileId = result.files[0].id;
-
-          statusText.textContent =
-            'متصل — تم العثور على ملف البيانات';
-        } else {
-          statusText.textContent =
-            'متصل — لا يوجد ملف بعد، استخدم حفظ إلى Drive';
-        }
-      } catch (error) {
-        showError(error);
-      }
-    }
-
-    async function saveToDrive() {
-      try {
-        clearError();
-
-        const jsonData = validateJson();
-
-        const metadata = {
-          name: FILE_NAME,
-          mimeType: 'application/json'
-        };
-
-        const form = new FormData();
-
-        form.append(
-          'metadata',
-          new Blob(
-            [JSON.stringify(metadata)],
-            { type: 'application/json' }
-          )
-        );
-
-        form.append(
-          'file',
-          new Blob(
-            [JSON.stringify(jsonData, null, 2)],
-            { type: 'application/json' }
-          )
-        );
-
-        const url = driveFileId
-          ? `https://www.googleapis.com/upload/drive/v3/files/${driveFileId}?uploadType=multipart`
-          : 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';
-
-        const response = await fetch(url, {
-          method: driveFileId ? 'PATCH' : 'POST',
-          headers: {
-            Authorization: `Bearer ${accessToken}`
-          },
-          body: form
-        });
-
-        const result = await response.json();
-
-        if (!response.ok) {
-          throw result;
-        }
-
-        driveFileId = result.id;
-
-        statusText.textContent =
-          'تم الحفظ في Google Drive بنجاح';
-      } catch (error) {
-        showError(error);
-      }
-    }
-
-    async function loadFromDrive() {
-      try {
-        clearError();
-
-        if (!driveFileId) {
-          await findExistingFile();
-        }
-
-        if (!driveFileId) {
-          throw new Error(
-            'لا يوجد ملف بيانات بعد. أضف بيانات ثم اضغط حفظ إلى Drive.'
-          );
-        }
-
-        const response = await fetch(
-          `https://www.googleapis.com/drive/v3/files/${driveFileId}?alt=media`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`
-            }
-          }
-        );
-
-        const result = await response.json();
-
-        if (!response.ok) {
-          throw result;
-        }
-
-        dataBox.value =
-          JSON.stringify(result, null, 2);
-
-        statusText.textContent =
-          'تم تحميل البيانات من Google Drive';
-      } catch (error) {
-        showError(error);
-      }
-    }
-
-    function logout() {
-      if (accessToken) {
-        google.accounts.oauth2.revoke(
-          accessToken,
-          () => {
-            accessToken = '';
-            driveFileId = '';
-            setDisconnected();
-          }
-        );
-      }
-    }
-
-    loginButton.addEventListener('click', login);
-    saveButton.addEventListener('click', saveToDrive);
-    loadButton.addEventListener('click', loadFromDrive);
-    logoutButton.addEventListener('click', logout);
-
-    window.addEventListener('load', () => {
-      setTimeout(initializeGoogle, 800);
-    });
+    function showModal(title,html,onSubmit){$('modalTitle').textContent=title;$('editorForm').innerHTML=html;$('modalBackdrop').classList.add('show');$('editorForm').onsubmit=e=>{e.preventDefault();onSubmit(new FormData(e.target));};}
+    function closeModal(){$('modalBackdrop').classList.remove('show');}
+    function clanOptions(selected=''){return `<option value="">بدون كلان</option>`+state.clans.map(c=>`<option value="${c.id}" ${c.id===selected?'selected':''}>${esc(c.name)}</option>`).join('');}
+    window.addClan=()=>showModal('إضافة كلان',`<div class="form-grid"><div class="field"><label>اسم الكلان *</label><input name="name" required autofocus></div><div class="field"><label>الاختصار / Tag</label><input name="tag" maxlength="12"></div><div class="field"><label>اسم القائد</label><input name="leader"></div><div class="field"><label>الوصف</label><input name="description"></div></div><div class="form-actions"><button class="btn primary">حفظ الكلان</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{state.clans.push({id:id(),name:f.get('name').trim(),tag:f.get('tag').trim(),leader:f.get('leader').trim(),description:f.get('description').trim()});saveLocal();closeModal();notice('تمت إضافة الكلان. اضغط حفظ إلى Drive لمزامنته.','ok')});
+    window.editClan=cid=>{const c=state.clans.find(x=>x.id===cid);if(!c)return;showModal('تعديل الكلان',`<div class="form-grid"><div class="field"><label>اسم الكلان *</label><input name="name" required value="${esc(c.name)}"></div><div class="field"><label>الاختصار / Tag</label><input name="tag" maxlength="12" value="${esc(c.tag)}"></div><div class="field"><label>اسم القائد</label><input name="leader" value="${esc(c.leader)}"></div><div class="field"><label>الوصف</label><input name="description" value="${esc(c.description)}"></div></div><div class="form-actions"><button class="btn primary">حفظ التعديل</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{Object.assign(c,{name:f.get('name').trim(),tag:f.get('tag').trim(),leader:f.get('leader').trim(),description:f.get('description').trim()});saveLocal();closeModal();notice('تم تعديل الكلان.','ok')});};
+    window.deleteClan=cid=>{const c=state.clans.find(x=>x.id===cid);if(c&&confirm(`حذف كلان «${c.name}»؟ سيبقى اللاعبون لكن دون كلان.`)){state.clans=state.clans.filter(x=>x.id!==cid);state.players.forEach(p=>{if(p.clanId===cid)p.clanId=''});saveLocal();notice('تم حذف الكلان.','ok')}};
+    window.addPlayer=()=>showModal('إضافة لاعب',`<div class="form-grid"><div class="field"><label>اسم اللاعب *</label><input name="name" required autofocus></div><div class="field"><label>الكلان</label><select name="clanId">${clanOptions()}</select></div><div class="field"><label>النقاط</label><input name="points" type="number" min="0" value="0"></div><div class="field"><label>الدور</label><select name="role"><option>عضو</option><option>نائب القائد</option><option>قائد</option></select></div><div class="field full"><label>ملاحظة</label><input name="note"></div></div><div class="form-actions"><button class="btn primary">حفظ اللاعب</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{state.players.push({id:id(),name:f.get('name').trim(),clanId:f.get('clanId'),points:num(f.get('points')),role:f.get('role'),note:f.get('note').trim()});saveLocal();closeModal();notice('تمت إضافة اللاعب.','ok')});
+    window.editPlayer=pid=>{const p=state.players.find(x=>x.id===pid);if(!p)return;showModal('تعديل اللاعب',`<div class="form-grid"><div class="field"><label>اسم اللاعب *</label><input name="name" required value="${esc(p.name)}"></div><div class="field"><label>الكلان</label><select name="clanId">${clanOptions(p.clanId)}</select></div><div class="field"><label>النقاط</label><input name="points" type="number" min="0" value="${num(p.points)}"></div><div class="field"><label>الدور</label><select name="role"><option ${p.role==='عضو'?'selected':''}>عضو</option><option ${p.role==='نائب القائد'?'selected':''}>نائب القائد</option><option ${p.role==='قائد'?'selected':''}>قائد</option></select></div><div class="field full"><label>ملاحظة</label><input name="note" value="${esc(p.note)}"></div></div><div class="form-actions"><button class="btn primary">حفظ التعديل</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{Object.assign(p,{name:f.get('name').trim(),clanId:f.get('clanId'),points:num(f.get('points')),role:f.get('role'),note:f.get('note').trim()});saveLocal();closeModal();notice('تم تعديل اللاعب.','ok')});};
+    window.deletePlayer=pid=>{const p=state.players.find(x=>x.id===pid);if(p&&confirm(`حذف اللاعب «${p.name}»؟`)){state.players=state.players.filter(x=>x.id!==pid);state.rewards.forEach(r=>{if(r.playerId===pid)r.playerId=''});saveLocal();notice('تم حذف اللاعب.','ok')}};
+    function playerOptions(selected=''){return `<option value="">بدون لاعب محدد</option>`+state.players.map(p=>`<option value="${p.id}" ${p.id===selected?'selected':''}>${esc(p.name)}</option>`).join('');}
+    window.addReward=()=>showModal('إضافة مكافأة',`<div class="form-grid"><div class="field"><label>اسم المكافأة *</label><input name="title" required autofocus></div><div class="field"><label>اللاعب</label><select name="playerId">${playerOptions()}</select></div><div class="field"><label>التاريخ</label><input name="date" type="date" value="${new Date().toISOString().slice(0,10)}"></div><div class="field"><label>تفاصيل</label><input name="details"></div></div><div class="form-actions"><button class="btn primary">حفظ المكافأة</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{state.rewards.push({id:id(),title:f.get('title').trim(),playerId:f.get('playerId'),date:f.get('date'),details:f.get('details').trim()});saveLocal();closeModal();notice('تمت إضافة المكافأة.','ok')});
+    window.editReward=rid=>{const r=state.rewards.find(x=>x.id===rid);if(!r)return;showModal('تعديل المكافأة',`<div class="form-grid"><div class="field"><label>اسم المكافأة *</label><input name="title" required value="${esc(r.title)}"></div><div class="field"><label>اللاعب</label><select name="playerId">${playerOptions(r.playerId)}</select></div><div class="field"><label>التاريخ</label><input name="date" type="date" value="${esc(r.date)}"></div><div class="field"><label>تفاصيل</label><input name="details" value="${esc(r.details)}"></div></div><div class="form-actions"><button class="btn primary">حفظ التعديل</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{Object.assign(r,{title:f.get('title').trim(),playerId:f.get('playerId'),date:f.get('date'),details:f.get('details').trim()});saveLocal();closeModal();notice('تم تعديل المكافأة.','ok')});};
+    window.deleteReward=rid=>{const r=state.rewards.find(x=>x.id===rid);if(r&&confirm(`حذف مكافأة «${r.title}»؟`)){state.rewards=state.rewards.filter(x=>x.id!==rid);saveLocal();notice('تم حذف المكافأة.','ok')}};
+    function initGoogle(){const clientId=localStorage.getItem(CLIENT_STORE_KEY)||'';if(!clientId){setStatus('ضع Client ID في الإعدادات ثم سجّل الدخول');return}if(!window.google?.accounts?.oauth2){setTimeout(initGoogle,500);return}tokenClient=google.accounts.oauth2.initTokenClient({client_id:clientId,scope:SCOPE,callback:async r=>{if(r.error){notice(r.error_description||r.error,'error');return}accessToken=r.access_token;connected(true);setStatus('متصل بـ Google Drive — جارٍ البحث عن الملف');await findFile();}})}
+    function login(){if(!tokenClient)initGoogle();if(!tokenClient){notice('لم يتم إعداد Client ID بعد. افتح الإعدادات وضع القيمة التي نجحت في نسخة الاختبار.','error');return}tokenClient.requestAccessToken({prompt:accessToken?'':'consent'});}
+    async function api(url,opts={}){const r=await fetch(url,{...opts,headers:{Authorization:`Bearer ${accessToken}`,...(opts.headers||{})}});const type=r.headers.get('content-type')||'';const out=type.includes('application/json')?await r.json():await r.text();if(!r.ok)throw out;return out;}
+    async function findFile(){try{const q=encodeURIComponent(`name='${FILE_NAME}' and trashed=false`);const r=await api(`https://www.googleapis.com/drive/v3/files?q=${q}&spaces=drive&fields=files(id,name,modifiedTime)`);driveFileId=r.files?.[0]?.id||'';setStatus(driveFileId?'متصل — تم العثور على ملف البيانات':'متصل — لا يوجد ملف بعد، استخدم حفظ إلى Drive');}catch(e){notice(e?.error?.message||'تعذر البحث في Drive','error')}}
+    async function saveDrive(){try{if(!accessToken)return login();state.updatedAt=new Date().toISOString();const metadata={name:FILE_NAME,mimeType:'application/json'};const fd=new FormData();fd.append('metadata',new Blob([JSON.stringify(metadata)],{type:'application/json'}));fd.append('file',new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));const url=driveFileId?`https://www.googleapis.com/upload/drive/v3/files/${driveFileId}?uploadType=multipart`:'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';const r=await api(url,{method:driveFileId?'PATCH':'POST',body:fd});driveFileId=r.id;localStorage.setItem(STORE_KEY,JSON.stringify(state));setStatus('تم الحفظ في Google Drive بنجاح');notice('تمت مزامنة كل البيانات مع Google Drive.','ok')}catch(e){notice(e?.error?.message||e?.message||'فشل الحفظ إلى Google Drive','error')}}
+    async function loadDrive(){try{if(!accessToken)return login();if(!driveFileId)await findFile();if(!driveFileId){notice('لا يوجد ملف محفوظ بعد. أضف بيانات ثم اضغط حفظ إلى Drive.','error');return}const r=await api(`https://www.googleapis.com/drive/v3/files/${driveFileId}?alt=media`);if(!r||!Array.isArray(r.clans)||!Array.isArray(r.players)||!Array.isArray(r.rewards))throw new Error('ملف البيانات غير صالح');state={version:1,clans:r.clans,players:r.players,rewards:r.rewards,updatedAt:r.updatedAt||null};localStorage.setItem(STORE_KEY,JSON.stringify(state));render();setStatus('تم تحميل البيانات من Google Drive');notice('تم تحميل البيانات بنجاح.','ok')}catch(e){notice(e?.error?.message||e?.message||'فشل التحميل من Google Drive','error')}}
+    function exportData(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download=`lords_of_syria_backup_${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href);notice('تم تصدير النسخة الاحتياطية.','ok')}
+    function importData(file){if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const d=JSON.parse(reader.result);if(!Array.isArray(d.clans)||!Array.isArray(d.players)||!Array.isArray(d.rewards))throw new Error();state={version:1,clans:d.clans,players:d.players,rewards:d.rewards,updatedAt:d.updatedAt||null};saveLocal();notice('تم استيراد البيانات. احفظها إلى Drive إن أردت مزامنتها.','ok')}catch(e){notice('ملف النسخة الاحتياطية غير صالح.','error')}};reader.readAsText(file)}
+    document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));t.classList.add('active');$(t.dataset.page).classList.add('active');});
+    $('addClanButton').onclick=window.addClan;$('addPlayerButton').onclick=window.addPlayer;$('addRewardButton').onclick=window.addReward;$('closeModal').onclick=closeModal;$('modalBackdrop').onclick=e=>{if(e.target===$('modalBackdrop'))closeModal()};$('loginButton').onclick=login;$('saveButton').onclick=saveDrive;$('loadButton').onclick=loadDrive;$('logoutButton').onclick=()=>{if(accessToken&&window.google?.accounts?.oauth2)google.accounts.oauth2.revoke(accessToken,()=>{});accessToken='';driveFileId='';connected(false);setStatus('تم تسجيل الخروج من Google Drive')};$('exportButton').onclick=exportData;$('importButton').onclick=()=>$('importFile').click();$('importFile').onchange=e=>importData(e.target.files[0]);$('applyClientButton').onclick=()=>{const v=$('clientIdInput').value.trim();if(!v.includes('.apps.googleusercontent.com')){notice('ألصق Google OAuth Client ID الصحيح فقط.','error');return}localStorage.setItem(CLIENT_STORE_KEY,v);tokenClient=null;initGoogle();notice('تم حفظ Client ID. يمكنك الآن تسجيل الدخول.','ok')};$('clearDataButton').onclick=()=>{if(confirm('مسح كل البيانات المحلية؟ لا يحذف ملف Drive.')){state={version:1,clans:[],players:[],rewards:[],updatedAt:null};saveLocal();notice('تم مسح البيانات المحلية.','ok')}};
+    loadLocal();$('clientIdInput').value=localStorage.getItem(CLIENT_STORE_KEY)||'';render();window.addEventListener('load',()=>setTimeout(initGoogle,700));
   </script>
 </body>
 </html>
