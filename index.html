@@ -1,41 +1,2213 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LORDS OF SYRIA PRO — Google Drive</title>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<style>
-:root{--bg:#0b0f14;--panel:#121821;--gold:#ffd56a;--accent:#f5c542;--text:#e8eef7;--muted:#9aa6b7;--line:#29384d;--ok:#3ddc97;--danger:#ff5c5c}*{box-sizing:border-box}body{margin:0;background:radial-gradient(1000px 600px at 10% -10%,#273852,var(--bg) 62%);color:var(--text);font-family:system-ui,Tahoma,Arial,sans-serif;min-height:100vh}header{text-align:center;padding:28px 12px 12px}.brand{margin:0;color:var(--gold);font-size:clamp(30px,6vw,52px);letter-spacing:2px}.subtitle{color:var(--muted);margin:8px}.container{width:min(1240px,calc(100% - 24px));margin:auto}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0}.topbar,.card,.modal{background:linear-gradient(180deg,#121821,#0e131b);border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 35px #0006}.topbar{padding:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#182438;color:var(--text);font-weight:800;cursor:pointer}.btn:hover{filter:brightness(1.13)}.btn-primary{background:linear-gradient(#f5c542,#ffb700);color:#211700;border-color:#d39e00}.btn-success{background:linear-gradient(#6ff0c2,#3ddc97);color:#032417;border-color:#238b65}.btn-danger{background:linear-gradient(#ff7b7b,#ff5c5c);color:#2b0505;border-color:#b33a3a}.pill{border:1px solid var(--line);padding:7px 10px;border-radius:999px;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}.card{padding:16px;position:relative}.card-title{font-weight:900;font-size:21px}.small,.muted{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}.tile{background:#1d2b40;border:1px solid var(--line);border-radius:11px;padding:11px;text-align:center}.tile-label{color:var(--muted);font-size:12px}.tile-value{color:var(--gold);font-size:17px;font-weight:900;margin-top:5px}.card-actions,.inline{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.empty{text-align:center;color:var(--muted);padding:28px;border:1px dashed var(--line);border-radius:12px;margin:12px 0}.modal-backdrop{display:none;position:fixed;inset:0;background:#000b;z-index:20;align-items:center;justify-content:center;padding:15px}.modal{width:min(760px,100%);max-height:92vh;overflow:auto;padding:17px}.modal h3{margin:0 0 12px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}label{display:block;color:var(--muted);font-size:13px;margin:9px 0 4px}input,select,textarea{width:100%;padding:10px;border:1px solid var(--line);background:#0b1119;color:var(--text);border-radius:9px}textarea{resize:vertical}.divider{height:1px;background:var(--line);margin:14px 0}.detail{display:none}.back{display:inline-flex;gap:9px;align-items:center;padding:10px 14px;border:1px solid var(--line);border-radius:10px;cursor:pointer;color:var(--muted)}table{width:100%;border-collapse:collapse;min-width:690px;background:#0b1119}th,td{padding:10px;border-bottom:1px solid #172333;text-align:right;font-size:13px}th{color:var(--muted);background:#0f1520}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:11px}.tag{font-family:monospace;background:#172438;border:1px solid var(--line);padding:3px 6px;border-radius:6px}.usd{direction:ltr;display:inline-block;color:var(--gold);font-weight:800}.status{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}.dot{width:10px;height:10px;background:var(--danger);border-radius:50%}.dot.ok{background:var(--ok);box-shadow:0 0 12px var(--ok)}.notice{padding:11px;border:1px solid #366390;background:#102a48;border-radius:10px;margin:10px 0}.notice.ok{border-color:#2a956b;background:#103a2b}.notice.error{border-color:#a7444f;background:#3b1920;color:#ffd7da}.footer{text-align:center;color:var(--muted);font-size:12px;margin:28px 0 18px}@media(max-width:650px){.row,.tiles{grid-template-columns:1fr}.toolbar{justify-content:center}.topbar{justify-content:center}.card-actions .btn{flex:1}}
-</style>
+  <meta charset="UTF-8" />
+  <title>LORDS OF SYRIA — إدارة الكلانات واللاعبين والمكافآت (PRO v12)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #121821;
+      --accent: #f5c542;
+      --accent-2: #ffb700;
+      --text: #e8eef7;
+      --muted: #9aa6b7;
+      --danger: #ff5c5c;
+      --success: #3ddc97;
+      --card-border: #1f2937;
+      --gold: #ffd56a;
+      --back-bg: #1a2433;
+      --back-border: #2a3546;
+      --tile-1: #243046;
+      --tile-2: #1f2a3a;
+      --tile-3: #1a2433;
+      --royal-1: #1a2433;
+      --royal-2: #121821;
+      --royal-border: #2a3546;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Tahoma, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1a2433 0%, var(--bg) 60%),
+                  radial-gradient(900px 500px at 110% 10%, #223047 0%, var(--bg) 60%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 28px 12px 10px;
+      position: relative;
+    }
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .crown {
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1;
+      filter: drop-shadow(0 8px 18px rgba(245,197,66,0.35));
+    }
+    .brand {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: transparent;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 0 8px 24px rgba(245,197,66,0.25);
+      margin: 0;
+    }
+    .dedication-royal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .royal-box {
+      background: linear-gradient(180deg, var(--royal-1), var(--royal-2));
+      border: 1px solid var(--royal-border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      min-width: 180px;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+    }
+    .royal-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .royal-value {
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.4px;
+    }
+    .subtitle {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 14px 0 18px;
+    }
+    .btn {
+      background: linear-gradient(180deg, #1f2937, #111827);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .btn:hover { transform: translateY(-1px); border-color: #2a3546; }
+    .btn:active { transform: translateY(0); }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      color: #1a1100;
+      border-color: #c99600;
+    }
+    .btn-danger {
+      background: linear-gradient(180deg, #ff7b7b, #ff5c5c);
+      color: #2b0505;
+      border-color: #b33a3a;
+    }
+    .btn-success {
+      background: linear-gradient(180deg, #6ff0c2, #3ddc97);
+      color: #032417;
+      border-color: #1f8a62;
+    }
+    .btn-back {
+      background: linear-gradient(180deg, var(--back-bg), #0f1520);
+      color: #cdd6e4;
+      border: 1px solid var(--back-border);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: linear-gradient(180deg, #121821, #0e131b);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px;
+      position: relative;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 18px;
+      padding: 1px;
+      background: linear-gradient(180deg, rgba(245,197,66,0.35), rgba(255,183,0,0.15));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 900;
+      margin: 0 0 10px;
+      color: #fff;
+      letter-spacing: 0.4px;
+    }
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .tile {
+      background: linear-gradient(180deg, var(--tile-1), var(--tile-2));
+      border: 1px solid #2a3546;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+    .tile-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .tile-value {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--gold);
+    }
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5,8,13,0.78);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 16px;
+    }
+    .modal {
+      width: 100%;
+      max-width: 760px;
+      background: linear-gradient(180deg, #121821, #0e131b);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+    }
+    .modal h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #fff;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 8px 0 4px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+      background: #0b1119;
+      color: var(--text);
+      outline: none;
+      font-size: 14px;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #2a3546;
+      box-shadow: 0 0 0 2px rgba(245,197,66,0.12);
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .help {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .divider {
+      height: 1px;
+      background: #1f2937;
+      margin: 12px 0;
+    }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 28px 10px;
+      border: 1px dashed #1f2937;
+      border-radius: 12px;
+      margin: 10px 0 20px;
+    }
+    .topbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .pill {
+      background: #0f1520;
+      border: 1px solid #1f2937;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin: 24px 0 10px;
+    }
+    .page-footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 28px 0 16px;
+      padding-top: 12px;
+      border-top: 1px solid #1f2937;
+    }
+    @media (max-width: 760px) {
+      .row { grid-template-columns: 1fr; }
+      .tiles { grid-template-columns: 1fr; }
+    }
+
+    /* Detail View */
+    .detail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .detail-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin: 14px 0 8px;
+    }
+    .players-table, .rewards-table-small, .members-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0b1119;
+      margin-top: 8px;
+    }
+    .players-table th, .players-table td, .rewards-table-small th, .rewards-table-small td, .members-table th, .members-table td {
+      padding: 10px;
+      border-bottom: 1px solid #141b26;
+      font-size: 13px;
+    }
+    /* محاذاة أعمدة جدول تقرير الكلان كامل (داخل الشاشة) */
+    .members-table th, .members-table td { text-align: right; }
+    .members-table th.col-player, .members-table td.col-player { text-align: right; }
+    .members-table th.col-tag, .members-table td.col-tag { text-align: right; }
+    .members-table th.col-count, .members-table td.col-count { text-align: center; }
+    .members-table th.col-due, .members-table td.col-due { text-align: left; direction: ltr; }
+    .members-table th.col-paid, .members-table td.col-paid { text-align: left; direction: ltr; }
+    .members-table th.col-unpaid, .members-table td.col-unpaid { text-align: left; direction: ltr; }
+
+    .players-table th, .rewards-table-small th, .members-table th {
+      background: #0f1520;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .players-table tr:last-child td, .rewards-table-small tr:last-child td, .members-table tr:last-child td { border-bottom: none; }
+    .tag {
+      font-family: ui-monospace, SFMono, Menlo, Consolas, monospace;
+      background: #0f1520;
+      border: 1px solid #1f2937;
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: #cdd6e4;
+      font-size: 12px;
+    }
+    .muted { color: var(--muted); }
+    .inline-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+    .usd {
+      font-weight: 800;
+      color: var(--accent);
+      direction: ltr;
+      display: inline-block;
+      text-align: left;
+    }
+
+    /* Back Card */
+    .back-card {
+      background: linear-gradient(180deg, var(--back-bg), #0f1520);
+      border: 1px solid var(--back-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #cdd6e4;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+      transition: transform .06s ease, border-color .2s ease;
+    }
+    .back-card:hover { transform: translateY(-1px); border-color: #3a4659; }
+
+    /* Player Report Panel inside Clan */
+    .player-report-panel {
+      background: linear-gradient(180deg, #121821, #0e131b);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+    }
+    .report-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .summary-box {
+      background: #0b1119;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    .summary-label { font-size: 12px; color: var(--muted); }
+    .summary-value { font-size: 18px; font-weight: 900; color: var(--gold); margin-top: 4px; }
+    .rewards-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0b1119;
+      margin-top: 10px;
+    }
+    .rewards-table th, .rewards-table td {
+      padding: 10px;
+      text-align: right;
+      border-bottom: 1px solid #141b26;
+      font-size: 13px;
+    }
+    .rewards-table th {
+      background: #0f1520;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .rewards-table tr:last-child td { border-bottom: none; }
+    .paid-flag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #0f1520; border: 1px solid #1f2937;
+      padding: 4px 8px; border-radius: 999px; font-size: 12px; color: var(--muted);
+    }
+    .paid-flag.yes { color: var(--success); border-color: #1f8a62; }
+    .check {
+      display: inline-block; width: 18px; height: 18px;
+      border: 2px solid #2a3546; border-radius: 4px;
+      position: relative;
+    }
+    .paid-flag.yes .check {
+      border-color: var(--success);
+      background: rgba(61,220,151,0.12);
+    }
+    .paid-flag.yes .check::after {
+      content: "✓";
+      position: absolute;
+      inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--success); font-weight: 900; font-size: 14px;
+    }
+
+    /* Clan Full Report View */
+    .clan-report-view {
+      background: linear-gradient(180deg, #121821, #0e131b);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+    }
+
+    /* Export image preview area (hidden from view, used for capture) */
+    #exportPreview {
+      position: fixed;
+      left: -9999px;
+      top: 0;
+      width: 1100px;
+      background: #0b0f14;
+      color: #e8eef7;
+      padding: 24px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Tahoma, Arial, sans-serif;
+    }
+    #exportPreview h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      color: #ffd56a;
+    }
+    #exportPreview .meta {
+      color: #9aa6b7;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+    #exportPreview .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+    }
+    #exportPreview .box {
+      background: #121821;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    #exportPreview .box .label { font-size: 12px; color: #9aa6b7; }
+    #exportPreview .box .val { font-size: 16px; font-weight: 900; color: #ffd56a; margin-top: 6px; }
+    #exportPreview table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      background: #0f1520;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #exportPreview th, #exportPreview td {
+      padding: 11px 10px;
+      border-bottom: 1px solid #141b26;
+      font-size: 13px;
+    }
+    #exportPreview th {
+      background: #0b1119;
+      color: #9aa6b7;
+      font-weight: 800;
+    }
+    /* محاذاة أعمدة التقرير المصدّر — ثابتة وواضحة */
+    #exportPreview th.col-player, #exportPreview td.col-player { text-align: right; }
+    #exportPreview th.col-tag, #exportPreview td.col-tag { text-align: right; }
+    #exportPreview th.col-count, #exportPreview td.col-count { text-align: center; }
+    #exportPreview th.col-due, #exportPreview td.col-due { text-align: left; direction: ltr; }
+    #exportPreview th.col-paid, #exportPreview td.col-paid { text-align: left; direction: ltr; }
+    #exportPreview th.col-unpaid, #exportPreview td.col-unpaid { text-align: left; direction: ltr; }
+    #exportPreview tr:last-child td { border-bottom: none; }
+
+    /* Google Drive Sync */
+    .drive-sync-panel { margin: 0 0 16px; padding: 12px; border: 1px solid #31547c; border-radius: 14px; background: linear-gradient(180deg,#13243a,#0d1726); display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; box-shadow:0 10px 28px rgba(0,0,0,.28); }
+    .drive-status { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:13px; font-weight:700; }
+    .drive-dot { width:10px; height:10px; border-radius:50%; background:var(--danger); display:inline-block; }
+    .drive-dot.ok { background:var(--success); box-shadow:0 0 12px rgba(61,220,151,.8); }
+    .drive-actions { display:flex; gap:8px; flex-wrap:wrap; }
+  </style>
+  <!-- html2canvas for image export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-<header><h1 class="brand">👑 LORDS OF SYRIA</h1><div class="subtitle">إدارة الكلانات واللاعبين والمكافآت — PRO v12</div></header>
-<div class="container">
-<div class="toolbar"><div class="topbar"><span class="status"><i id="dot" class="dot"></i><span id="status">غير متصل بـ Google Drive</span></span><span class="pill">الكلانات: <b id="clansCount">0</b></span><span class="pill">اللاعبون: <b id="playersCount">0</b></span><span class="pill">المكافآت: <b id="rewardsCount">0</b></span></div><div class="inline"><button class="btn btn-primary" id="login">تسجيل دخول Google</button><button class="btn btn-success" id="load" disabled>تحميل من Drive</button><button class="btn btn-primary" id="save" disabled>حفظ إلى Drive</button><button class="btn" id="settings">إعدادات</button></div></div>
-<div id="notice" class="notice" style="display:none"></div>
-<section id="home"><div class="toolbar"><h2>الكلانات</h2><div class="inline"><button class="btn btn-primary" id="newClan">+ كلان جديد</button><button class="btn" id="backup">نسخة JSON</button><button class="btn" id="restoreBtn">استعادة JSON</button><input id="restore" type="file" accept="application/json" hidden></div></div><div id="clansGrid" class="grid"></div><div id="empty" class="empty">لا توجد كلانات حتى الآن.</div></section>
-<section id="detail" class="detail"><div class="inline"><button class="back" id="back">← العودة للرئيسية</button><button class="btn btn-primary" id="newPlayer">+ إضافة لاعب</button><button class="btn btn-success" id="newReward">+ إضافة مكافأة</button><button class="btn" id="editCurrent">تعديل الكلان</button><button class="btn btn-danger" id="deleteCurrent">حذف الكلان</button></div><div class="card" style="margin-top:14px"><h2 id="detailName"></h2><div id="detailNote" class="muted"></div></div><h3>اللاعبون</h3><div class="table-wrap"><table><thead><tr><th>اللاعب</th><th>التاغ</th><th>ملاحظات</th><th>المستحقة</th><th>المدفوعة</th><th>المتبقي</th><th>إجراءات</th></tr></thead><tbody id="playersBody"></tbody></table></div><h3>المكافآت</h3><div class="table-wrap"><table><thead><tr><th>التاريخ</th><th>اللاعب</th><th>النوع</th><th>الملاحظة</th><th>القيمة</th><th>الحالة</th><th>إجراءات</th></tr></thead><tbody id="rewardsBody"></tbody></table></div></section>
-<div class="footer">تم تصميم هذا البرنامج بواسطة اللورد موكا قائد كلان LORDS OF SYRIA</div></div>
-<div id="backdrop" class="modal-backdrop"><div class="modal"><h3 id="modalTitle">إضافة</h3><form id="form"></form></div></div>
-<script>
-const CLIENT_ID='670203375895-j55r9p89aq9f3crg48omuh0jop9942ec.apps.googleusercontent.com';
-const SCOPE='https://www.googleapis.com/auth/drive.file',FILE_NAME='lords_of_syria_data.json';
-const KEYS={clans:'los_clans_v1',players:'los_players_v1',rewards:'los_rewards_v1'};
-let clans=load('clans',[]),players=load('players',[]),rewards=load('rewards',[]),current=null,driveFileId='',accessToken='',tokenClient;
-const $=id=>document.getElementById(id), esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function load(k,f){try{return JSON.parse(localStorage.getItem(KEYS[k]))??f}catch{return f}}function persist(){localStorage.setItem(KEYS.clans,JSON.stringify(clans));localStorage.setItem(KEYS.players,JSON.stringify(players));localStorage.setItem(KEYS.rewards,JSON.stringify(rewards));renderHome();if(current)renderDetail()}function uid(){return crypto.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2)}function money(n){return '$'+Number(n||0).toFixed(2)}function note(t,type=''){const n=$('notice');n.textContent=t;n.className='notice '+type;n.style.display='block';clearTimeout(window.nt);window.nt=setTimeout(()=>n.style.display='none',5000)}function clanPlayers(id){return players.filter(p=>p.clanId===id)}function clanRewards(id){const ids=clanPlayers(id).map(p=>p.id);return rewards.filter(r=>ids.includes(r.playerId))}function setConnected(v){$('dot').classList.toggle('ok',v);$('load').disabled=!v;$('save').disabled=!v;$('status').textContent=v?'متصل بـ Google Drive':'غير متصل بـ Google Drive'}
-function renderHome(){ $('clansCount').textContent=clans.length;$('playersCount').textContent=players.length;$('rewardsCount').textContent=rewards.length;const g=$('clansGrid');g.innerHTML='';$('empty').style.display=clans.length?'none':'block';clans.forEach(c=>{const ps=clanPlayers(c.id),rs=clanRewards(c.id),due=rs.reduce((s,r)=>s+Number(r.value||0),0),paid=rs.filter(r=>r.paid).reduce((s,r)=>s+Number(r.value||0),0);const d=document.createElement('article');d.className='card';d.innerHTML=`<div class="card-title">${esc(c.name)}</div><div class="small">${esc(c.note||'')}</div><div class="tiles"><div class="tile"><div class="tile-label">عدد الأعضاء</div><div class="tile-value">${ps.length}</div></div><div class="tile"><div class="tile-label">المستحقة</div><div class="tile-value">${money(due)}</div></div><div class="tile"><div class="tile-label">المدفوعة</div><div class="tile-value">${money(paid)}</div></div></div><div class="card-actions"><button class="btn btn-primary" data-open="${c.id}">دخول</button><button class="btn" data-edit="${c.id}">تعديل</button><button class="btn btn-danger" data-del="${c.id}">حذف</button></div>`;g.appendChild(d)});g.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openDetail(b.dataset.open));g.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>editClan(b.dataset.edit));g.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>deleteClan(b.dataset.del))}
-function openDetail(id){current=id;$('home').style.display='none';$('detail').style.display='block';renderDetail()}function showHome(){current=null;$('detail').style.display='none';$('home').style.display='block';renderHome()}
-function renderDetail(){const c=clans.find(x=>x.id===current);if(!c)return showHome();$('detailName').textContent=c.name;$('detailNote').textContent=c.note||'';const ps=clanPlayers(current),rs=clanRewards(current);$('playersBody').innerHTML=ps.length?ps.map(p=>{const a=rs.filter(r=>r.playerId===p.id),due=a.reduce((s,r)=>s+Number(r.value||0),0),paid=a.filter(r=>r.paid).reduce((s,r)=>s+Number(r.value||0),0);return `<tr><td><b>${esc(p.name)}</b></td><td><span class="tag">${esc(p.tag||'')}</span></td><td class="muted">${esc(p.note||'')}</td><td class="usd">${money(due)}</td><td class="usd">${money(paid)}</td><td class="usd">${money(due-paid)}</td><td><button class="btn" data-pe="${p.id}">تعديل</button> <button class="btn btn-danger" data-pd="${p.id}">حذف</button></td></tr>`}).join(''):'<tr><td colspan="7" class="muted">لا يوجد لاعبون.</td></tr>';$('rewardsBody').innerHTML=rs.length?rs.sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(r=>{const p=players.find(x=>x.id===r.playerId);return `<tr><td>${esc(r.date)}</td><td>${esc(p?.name||'—')}</td><td>${esc(r.type)}</td><td class="muted">${esc(r.note||'')}</td><td class="usd">${money(r.value)}</td><td><button class="btn" data-paid="${r.id}">${r.paid?'مدفوع':'غير مدفوع'}</button></td><td><button class="btn" data-re="${r.id}">تعديل</button> <button class="btn btn-danger" data-rd="${r.id}">حذف</button></td></tr>`}).join(''):'<tr><td colspan="7" class="muted">لا توجد مكافآت.</td></tr>';$('playersBody').querySelectorAll('[data-pe]').forEach(b=>editPlayer(b.dataset.pe));$('playersBody').querySelectorAll('[data-pd]').forEach(b=>deletePlayer(b.dataset.pd));$('rewardsBody').querySelectorAll('[data-paid]').forEach(b=>b.onclick=()=>{const r=rewards.find(x=>x.id===b.dataset.paid);r.paid=!r.paid;persist()});$('rewardsBody').querySelectorAll('[data-re]').forEach(b=>editReward(b.dataset.re));$('rewardsBody').querySelectorAll('[data-rd]').forEach(b=>deleteReward(b.dataset.rd))}
-function modal(title,html,submit){$('modalTitle').textContent=title;$('form').innerHTML=html;$('backdrop').style.display='flex';$('form').onsubmit=e=>{e.preventDefault();submit(new FormData(e.target))}}function closeModal(){$('backdrop').style.display='none'}$('backdrop').onclick=e=>{if(e.target===$('backdrop'))closeModal()}
-function options(list,selected=''){return list.map(x=>`<option value="${x.id}" ${x.id===selected?'selected':''}>${esc(x.name)}</option>`).join('')}
-function newClan(){modal('كلان جديد',`<label>اسم الكلان</label><input name="name" required autofocus><label>ملاحظة</label><textarea name="note"></textarea><div class="inline"><button class="btn btn-primary">حفظ</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{clans.push({id:uid(),name:f.get('name').trim(),note:f.get('note').trim()});persist();closeModal()})}function editClan(id){const c=clans.find(x=>x.id===id);if(!c)return;modal('تعديل الكلان',`<label>اسم الكلان</label><input name="name" value="${esc(c.name)}" required><label>ملاحظة</label><textarea name="note">${esc(c.note||'')}</textarea><div class="inline"><button class="btn btn-primary">حفظ</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{c.name=f.get('name').trim();c.note=f.get('note').trim();persist();closeModal()})}function deleteClan(id){const c=clans.find(x=>x.id===id);if(c&&confirm(`حذف ${c.name} مع لاعبيه ومكافآته؟`)){const ids=clanPlayers(id).map(p=>p.id);clans=clans.filter(x=>x.id!==id);players=players.filter(p=>p.clanId!==id);rewards=rewards.filter(r=>!ids.includes(r.playerId));persist();if(current===id)showHome()}}
-function newPlayer(){modal('إضافة لاعب',`<label>اسم اللاعب</label><input name="name" required><label>تاغ القرية</label><input name="tag" placeholder="#XXXXXXXX" required><label>ملاحظات</label><textarea name="note"></textarea><div class="inline"><button class="btn btn-primary">حفظ</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{const tag=f.get('tag').trim();if(!tag.startsWith('#'))return note('يجب أن يبدأ التاغ بـ #','error');players.push({id:uid(),name:f.get('name').trim(),tag,clanId:current,note:f.get('note').trim()});persist();closeModal()})}function editPlayer(id){const p=players.find(x=>x.id===id);if(!p)return;modal('تعديل لاعب',`<label>اسم اللاعب</label><input name="name" value="${esc(p.name)}" required><label>تاغ القرية</label><input name="tag" value="${esc(p.tag||'')}" required><label>ملاحظات</label><textarea name="note">${esc(p.note||'')}</textarea><div class="inline"><button class="btn btn-primary">حفظ</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{const tag=f.get('tag').trim();if(!tag.startsWith('#'))return note('يجب أن يبدأ التاغ بـ #','error');Object.assign(p,{name:f.get('name').trim(),tag,note:f.get('note').trim()});persist();closeModal()})}function deletePlayer(id){const p=players.find(x=>x.id===id);if(p&&confirm(`حذف اللاعب ${p.name} ومكافآته؟`)){players=players.filter(x=>x.id!==id);rewards=rewards.filter(r=>r.playerId!==id);persist()}}
-function newReward(){const ps=clanPlayers(current);if(!ps.length)return note('أضف لاعبًا أولًا.','error');modal('إضافة مكافأة',`<label>اللاعب</label><select name="playerId">${options(ps)}</select><label>نوع المكافأة</label><input name="type" required><div class="row"><div><label>القيمة ($)</label><input name="value" type="number" step="0.01" value="0"></div><div><label>التاريخ</label><input name="date" type="date" value="${new Date().toISOString().slice(0,10)}"></div></div><label>ملاحظة</label><input name="note"><div class="inline"><button class="btn btn-success">حفظ</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{rewards.push({id:uid(),playerId:f.get('playerId'),type:f.get('type').trim(),value:Number(f.get('value')||0),date:f.get('date'),note:f.get('note').trim(),paid:false});persist();closeModal()})}function editReward(id){const r=rewards.find(x=>x.id===id);if(!r)return;const ps=clanPlayers(current);modal('تعديل مكافأة',`<label>اللاعب</label><select name="playerId">${options(ps,r.playerId)}</select><label>نوع المكافأة</label><input name="type" value="${esc(r.type)}" required><div class="row"><div><label>القيمة ($)</label><input name="value" type="number" step="0.01" value="${r.value}"></div><div><label>التاريخ</label><input name="date" type="date" value="${esc(r.date)}"></div></div><label>ملاحظة</label><input name="note" value="${esc(r.note||'')}"><div class="inline"><button class="btn btn-success">حفظ</button><button type="button" class="btn" onclick="closeModal()">إلغاء</button></div>`,f=>{Object.assign(r,{playerId:f.get('playerId'),type:f.get('type').trim(),value:Number(f.get('value')||0),date:f.get('date'),note:f.get('note').trim()});persist();closeModal()})}function deleteReward(id){if(confirm('حذف المكافأة؟')){rewards=rewards.filter(x=>x.id!==id);persist()}}
-function initGoogle(){if(!window.google?.accounts?.oauth2)return setTimeout(initGoogle,500);tokenClient=google.accounts.oauth2.initTokenClient({client_id:CLIENT_ID,scope:SCOPE,callback:async r=>{if(r.error)return note(r.error_description||r.error,'error');accessToken=r.access_token;setConnected(true);await findFile()}})}async function api(url,opts={}){const r=await fetch(url,{...opts,headers:{Authorization:`Bearer ${accessToken}`,...(opts.headers||{})}});const type=r.headers.get('content-type')||'';const x=type.includes('json')?await r.json():await r.text();if(!r.ok)throw x;return x}async function findFile(){try{const q=encodeURIComponent(`name='${FILE_NAME}' and trashed=false`);const x=await api(`https://www.googleapis.com/drive/v3/files?q=${q}&spaces=drive&fields=files(id,name)`);driveFileId=x.files?.[0]?.id||'';$('status').textContent=driveFileId?'متصل — تم العثور على ملف البيانات':'متصل — لا يوجد ملف بعد'}catch(e){note(e?.error?.message||'فشل البحث في Drive','error')}}async function saveDrive(){try{const metadata={name:FILE_NAME,mimeType:'application/json'},fd=new FormData();fd.append('metadata',new Blob([JSON.stringify(metadata)],{type:'application/json'}));fd.append('file',new Blob([JSON.stringify({version:1,clans,players,rewards},null,2)],{type:'application/json'}));const url=driveFileId?`https://www.googleapis.com/upload/drive/v3/files/${driveFileId}?uploadType=multipart`:'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';const x=await api(url,{method:driveFileId?'PATCH':'POST',body:fd});driveFileId=x.id;note('تم حفظ البرنامج كاملًا في Google Drive.','ok');$('status').textContent='تم الحفظ في Google Drive بنجاح'}catch(e){note(e?.error?.message||'فشل الحفظ','error')}}async function loadDrive(){try{if(!driveFileId)await findFile();if(!driveFileId)return note('لا يوجد ملف محفوظ بعد.','error');const x=await api(`https://www.googleapis.com/drive/v3/files/${driveFileId}?alt=media`);clans=Array.isArray(x.clans)?x.clans:[];players=Array.isArray(x.players)?x.players:[];rewards=Array.isArray(x.rewards)?x.rewards:[];persist();note('تم تحميل بيانات البرنامج كاملة من Google Drive.','ok')}catch(e){note(e?.error?.message||'فشل التحميل','error')}}
-function backup(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({clans,players,rewards},null,2)],{type:'application/json'}));a.download='lords_of_syria_backup.json';a.click()}$('login').onclick=()=>tokenClient.requestAccessToken({prompt:accessToken?'':'consent'});$('load').onclick=loadDrive;$('save').onclick=saveDrive;$('newClan').onclick=newClan;$('back').onclick=showHome;$('newPlayer').onclick=newPlayer;$('newReward').onclick=newReward;$('editCurrent').onclick=()=>editClan(current);$('deleteCurrent').onclick=()=>deleteClan(current);$('backup').onclick=backup;$('restoreBtn').onclick=()=>$('restore').click();$('restore').onchange=e=>{const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);clans=x.clans||[];players=x.players||[];rewards=x.rewards||[];persist();note('تمت الاستعادة.','ok')}catch{note('ملف غير صالح.','error')}};r.readAsText(e.target.files[0])};$('settings').onclick=()=>note('Client ID مدمج داخل هذه النسخة. لا تحتاج إلى إدخاله من الواجهة.','ok');loadDrive;
-renderHome();window.addEventListener('load',()=>setTimeout(initGoogle,700));
-</script>
+  <header>
+    <div class="brand-wrap">
+      <div class="crown">👑</div>
+      <h1 class="brand">LORDS OF SYRIA</h1>
+    </div>
+    <div class="dedication-royal">
+      <div class="royal-box">
+        <div class="royal-label">القائد</div>
+        <div class="royal-value">LORD MOKA</div>
+      </div>
+      <div class="royal-box">
+        <div class="royal-label">مالك الكلان</div>
+        <div class="royal-value">LORD ABOOD</div>
+      </div>
+    </div>
+    <div class="subtitle">إدارة الكلانات واللاعبين والمكافآت — PRO v12</div>
+  </header>
+
+  <div class="container" id="app">
+
+    <div class="drive-sync-panel">
+      <div class="drive-status"><span id="driveStatusDot" class="drive-dot"></span><span id="driveStatusText">Google Drive: غير مُعد</span></div>
+      <div class="drive-actions">
+        <button class="btn" type="button" onclick="driveLogin()">تسجيل دخول Google</button>
+        <button class="btn btn-success" type="button" id="driveLoadButton" onclick="loadFromDrive()" disabled>تحميل من Drive</button>
+        <button class="btn btn-primary" type="button" id="driveSaveButton" onclick="saveToDrive()" disabled>حفظ إلى Drive</button>
+      </div>
+    </div>
+
+    <!-- Home View -->
+    <div id="homeView">
+      <div class="toolbar">
+        <div class="topbar">
+          <span class="pill">الكلانات: <strong id="clansCount">0</strong></span>
+          <span class="pill">اللاعبون: <strong id="playersCount">0</strong></span>
+          <span class="pill">المكافآت: <strong id="rewardsCount">0</strong></span>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="openClanModal()">+ كلان جديد</button>
+          <button class="btn" onclick="showClanFullReport()">تقرير كلان كامل</button>
+          <button class="btn" onclick="exportAllCSV()">تصدير الكل CSV</button>
+          <button class="btn" onclick="openSettingsModal()">إعدادات</button>
+        </div>
+      </div>
+
+      <div id="clansGrid" class="grid"></div>
+      <div id="emptyState" class="empty" style="display:none;">
+        لا توجد كلانات حتى الآن. اضغط على "+ كلان جديد" لإنشاء أول كلان.
+      </div>
+
+      <div class="footer-note">
+        جميع البيانات تُحفظ محليًا في متصفحك. يمكنك التصدير والنسخ الاحتياطي عبر JSON/CSV.
+      </div>
+    </div>
+
+    <!-- Clan Full Report View -->
+    <div id="clanFullReportView" style="display:none;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
+        <div class="back-card" onclick="showHome()">
+          <span>←</span>
+          <span>العودة للرئيسية</span>
+        </div>
+      </div>
+
+      <div class="clan-report-view">
+        <h3 class="report-title">تقرير كلان كامل — فترة زمنية</h3>
+        <div class="row">
+          <div>
+            <label>اختر الكلان</label>
+            <select id="fullReportClanSelect" onchange="onClanFullReportSelectionChange()"></select>
+          </div>
+          <div></div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div>
+            <label>من تاريخ</label>
+            <input type="date" id="fullReportDateFrom" />
+          </div>
+          <div>
+            <label>إلى تاريخ</label>
+            <input type="date" id="fullReportDateTo" />
+          </div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="renderClanFullReport()">تحديث التقرير</button>
+          <button class="btn btn-success" onclick="exportClanFullReportImage()">تصدير التقرير كصورة</button>
+          <button class="btn" onclick="exportClanFullReportCSV()">تصدير CSV</button>
+        </div>
+
+        <div id="clanFullReportContent" style="display:none;">
+          <div class="summary-grid">
+            <div class="summary-box">
+              <div class="summary-label">أفراد الكلان</div>
+              <div class="summary-value" id="frMembersCount">0</div>
+            </div>
+            <div class="summary-box">
+              <div class="summary-label">المكافآت (عدد)</div>
+              <div class="summary-value" id="frRewardsCount">0</div>
+            </div>
+            <div class="summary-box">
+              <div class="summary-label">المستحقة ($)</div>
+              <div class="summary-value" id="frDue">0.00</div>
+            </div>
+            <div class="summary-box">
+              <div class="summary-label">المدفوعة ($)</div>
+              <div class="summary-value" id="frPaid">0.00</div>
+            </div>
+          </div>
+
+          <div style="overflow:auto;">
+            <table class="members-table">
+              <thead>
+                <tr>
+                  <th class="col-player">اللاعب</th>
+                  <th class="col-tag">تاغ القرية</th>
+                  <th class="col-count">عدد الجوائز</th>
+                  <th class="col-due">المستحقة ($)</th>
+                  <th class="col-paid">المدفوعة ($)</th>
+                  <th class="col-unpaid">غير المدفوعة ($)</th>
+                </tr>
+              </thead>
+              <tbody id="frMembersBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clan Detail View -->
+    <div id="clanDetailView" style="display:none;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
+        <div class="back-card" onclick="showHome()">
+          <span>←</span>
+          <span>العودة للرئيسية</span>
+        </div>
+        <div class="inline-actions">
+          <button class="btn btn-success" onclick="openRewardModalForCurrentClan()">+ إضافة مكافأة</button>
+          <button class="btn" onclick="editCurrentClan()">تعديل الكلان</button>
+          <button class="btn btn-danger" onclick="deleteCurrentClan()">حذف الكلان</button>
+          <button class="btn btn-primary" onclick="openPlayerModalForCurrentClan()">+ إضافة لاعب</button>
+          <button class="btn" onclick="exportClanImage()">تصدير الكلان كصورة</button>
+          <button class="btn btn-danger" onclick="clearClanRewards()">مسح سجل المكافآت</button>
+        </div>
+      </div>
+
+      <div class="detail-header">
+        <div class="detail-title" id="detailClanName">اسم الكلان</div>
+      </div>
+      <div class="small muted" id="detailClanNote"></div>
+
+      <div class="divider"></div>
+      <div class="section-title">سجل الأعضاء</div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+        <div class="tiny muted">قائمة لاعبي الكلان</div>
+        <input id="playerSearch" placeholder="بحث باسم اللاعب أو التاغ..." style="max-width:260px;" oninput="renderPlayersTable()" />
+      </div>
+      <div style="overflow:auto;">
+        <table class="players-table">
+          <thead>
+            <tr>
+              <th>اللاعب</th>
+              <th>تاغ القرية</th>
+              <th>ملاحظات</th>
+              <th>المستحقة ($)</th>
+              <th>المدفوعة ($)</th>
+              <th>المتبقي ($)</th>
+              <th>إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="playersTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="section-title">سجل المكافآت (منفصل)</div>
+      <div style="overflow:auto;">
+        <table class="rewards-table-small">
+          <thead>
+            <tr>
+              <th>التاريخ</th>
+              <th>اللاعب</th>
+              <th>نوع المكافأة</th>
+              <th>ملاحظة</th>
+              <th>القيمة ($)</th>
+              <th>مدفوع؟</th>
+              <th>إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="clanRewardsBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Player Report Panel (inside Clan) -->
+      <div class="player-report-panel">
+        <h3 class="report-title">تقرير لاعب (داخل الكلان)</h3>
+        <div class="row">
+          <div>
+            <label>اختر لاعبًا (من لديه مكافآت مسجّلة)</label>
+            <select id="clanPlayerReportSelect" onchange="renderClanPlayerReport()"></select>
+            <div class="help">يظهر فقط لاعبو هذا الكلان الذين لديهم مكافآت.</div>
+          </div>
+          <div style="display:flex; align-items:flex-end; gap:8px;">
+            <button class="btn btn-primary" onclick="renderClanPlayerReport()">تحديث التقرير</button>
+            <button class="btn btn-success" onclick="exportClanPlayerReportImage()">تصدير التقرير كصورة</button>
+          </div>
+        </div>
+
+        <div id="clanPlayerReportContent" style="display:none;">
+          <div class="summary-grid">
+            <div class="summary-box">
+              <div class="summary-label">المكافآت (عدد)</div>
+              <div class="summary-value" id="clanSumCount">0</div>
+            </div>
+            <div class="summary-box">
+              <div class="summary-label">المستحقة ($)</div>
+              <div class="summary-value" id="clanSumDue">0.00</div>
+            </div>
+            <div class="summary-box">
+              <div class="summary-label">المدفوعة ($)</div>
+              <div class="summary-value" id="clanSumPaid">0.00</div>
+            </div>
+            <div class="summary-box">
+              <div class="summary-label">المتبقي ($)</div>
+              <div class="summary-value" id="clanSumRemaining">0.00</div>
+            </div>
+          </div>
+
+          <div style="overflow:auto;">
+            <table class="rewards-table">
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>نوع المكافأة</th>
+                  <th>ملاحظة</th>
+                  <th>القيمة ($)</th>
+                  <th>مدفوع؟</th>
+                  <th>إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="clanPlayerReportBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    تم تصميم هذا البرنامج بواسطة اللورد موكا قائد كلان LORDS OF SYRIA
+  </div>
+
+  <!-- Modal: Clan -->
+  <div id="clanModal" class="modal-backdrop" onclick="if(event.target===this) closeClanModal()">
+    <div class="modal">
+      <h3 id="clanModalTitle">كلان جديد</h3>
+      <input type="hidden" id="clanId" />
+      <label>اسم الكلان</label>
+      <input id="clanName" placeholder="اكتب اسم الكلان" />
+      <label>ملاحظة (اختياري)</label>
+      <textarea id="clanNote" rows="2" placeholder="ملاحظة قصيرة"></textarea>
+
+      <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end;">
+        <button class="btn" onclick="closeClanModal()">إلغاء</button>
+        <button class="btn btn-success" onclick="saveClan()">حفظ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Duplicate Clan -->
+  <div id="duplicateModal" class="modal-backdrop" onclick="if(event.target===this) closeDuplicateModal()">
+    <div class="modal">
+      <h3>نسخ الكلان</h3>
+      <input type="hidden" id="dupClanId" />
+      <label>اسم الكلان المنسوخ</label>
+      <input id="dupClanName" readonly />
+      <label>خيار النسخ</label>
+      <select id="dupOption">
+        <option value="card">نسخ بطاقة الكلان فقط (الاسم والملاحظة)</option>
+        <option value="full">نسخ كامل: الكلان + جميع لاعبيه + سجل مكافآتهم</option>
+      </select>
+      <div class="help">النسخ الكامل سينشئ لاعبين جددًا بنفس الأسماء والتاغ، وينسخ مكافآتهم مع حالة الدفع.</div>
+
+      <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end;">
+        <button class="btn" onclick="closeDuplicateModal()">إلغاء</button>
+        <button class="btn btn-success" onclick="confirmDuplicate()">نسخ الآن</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Player -->
+  <div id="playerModal" class="modal-backdrop" onclick="if(event.target===this) closePlayerModal()">
+    <div class="modal">
+      <h3 id="playerModalTitle">لاعب جديد</h3>
+      <input type="hidden" id="playerId" />
+      <label>اسم اللاعب</label>
+      <input id="playerName" placeholder="اكتب اسم اللاعب" />
+      <label>تاغ القرية (يبدأ بـ #)</label>
+      <input id="playerTag" placeholder="#XXXXXXXX" />
+      <label>الكلان</label>
+      <select id="playerClanSelect"></select>
+      <label>ملاحظة (اختياري)</label>
+      <textarea id="playerNote" rows="2" placeholder="ملاحظة قصيرة"></textarea>
+
+      <div class="divider"></div>
+      <label>إضافة مكافأة سريعة (اختياري)</label>
+      <div class="row">
+        <div>
+          <label>نوع المكافأة</label>
+          <input id="quickRewardType" placeholder="مثال: تذكرة ذهبية" />
+        </div>
+        <div>
+          <label>القيمة ($)</label>
+          <input id="quickRewardValue" type="number" step="0.01" placeholder="0.00" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>التاريخ</label>
+          <input id="quickRewardDate" type="date" />
+        </div>
+        <div>
+          <label>ملاحظة المكافأة</label>
+          <input id="quickRewardNote" placeholder="اختياري" />
+        </div>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end;">
+        <button class="btn" onclick="closePlayerModal()">إلغاء</button>
+        <button class="btn btn-success" onclick="savePlayer()">حفظ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Edit Player -->
+  <div id="editPlayerModal" class="modal-backdrop" onclick="if(event.target===this) closeEditPlayerModal()">
+    <div class="modal">
+      <h3>تعديل بيانات اللاعب</h3>
+      <input type="hidden" id="editPlayerId" />
+      <label>اسم اللاعب</label>
+      <input id="editPlayerName" />
+      <label>تاغ القرية</label>
+      <input id="editPlayerTag" />
+      <label>ملاحظة</label>
+      <textarea id="editPlayerNote" rows="2"></textarea>
+      <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end;">
+        <button class="btn" onclick="closeEditPlayerModal()">إلغاء</button>
+        <button class="btn btn-success" onclick="saveEditPlayer()">حفظ التعديلات</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Add/Edit Reward (within clan) -->
+  <div id="rewardModal" class="modal-backdrop" onclick="if(event.target===this) closeRewardModal()">
+    <div class="modal">
+      <h3 id="rewardModalTitle">إضافة مكافأة — <span id="rewardClanNameDisplay"></span></h3>
+      <input type="hidden" id="rewardClanId" />
+      <input type="hidden" id="rewardId" />
+      <label>اختر اللاعب</label>
+      <select id="rewardPlayerSelect"></select>
+      <label>نوع المكافأة</label>
+      <input id="rewardType" placeholder="اكتب نوع المكافأة (مثال: تذكرة ذهبية)" />
+      <div class="row">
+        <div>
+          <label>القيمة ($)</label>
+          <input id="rewardValue" type="number" step="0.01" placeholder="0.00" />
+        </div>
+        <div>
+          <label>التاريخ</label>
+          <input id="rewardDate" type="date" />
+        </div>
+      </div>
+      <label>ملاحظة المكافأة (اختياري)</label>
+      <input id="rewardNote" placeholder="ملاحظة قصيرة" />
+      <label>حالة الدفع</label>
+      <select id="rewardPaid">
+        <option value="0">غير مدفوع</option>
+        <option value="1">مدفوع</option>
+      </select>
+
+      <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end;">
+        <button class="btn" onclick="closeRewardModal()">إلغاء</button>
+        <button class="btn btn-success" onclick="saveRewardFromModal()">حفظ المكافأة</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Settings -->
+  <div id="settingsModal" class="modal-backdrop" onclick="if(event.target===this) closeSettingsModal()">
+    <div class="modal">
+      <h3>إعدادات</h3>
+      <label>كلمة مرور الواجهة (اختياري)</label>
+      <input id="appPassword" type="password" placeholder="اتركه فارغًا لتعطيل القفل" />
+      <div class="help">عند تعيين كلمة مرور، سيُطلب إدخالها عند فتح الصفحة.</div>
+
+
+      <div class="divider"></div>
+      <label>ربط Google Drive</label>
+      <input id="googleClientId" dir="ltr" placeholder="Google OAuth Client ID — ينتهي بـ apps.googleusercontent.com" />
+      <div class="help">ألصق Client ID فقط. لا تضع API Key ولا Client Secret. سيتم حفظه محليًا في هذا المتصفح.</div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+        <button class="btn btn-primary" type="button" onclick="applyGoogleClientId()">تطبيق كود Google</button>
+        <button class="btn" type="button" onclick="driveLogin()">تسجيل دخول Google</button>
+      </div>
+
+      <div class="divider"></div>
+      <label>نسخ احتياطي واستعادة</label>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn" onclick="backupJSON()">تحميل نسخة JSON</button>
+        <label class="btn" style="cursor:pointer;">
+          استعادة JSON
+          <input type="file" accept="application/json" style="display:none;" onchange="restoreJSON(this)" />
+        </label>
+        <button class="btn btn-danger" onclick="hardReset()">مسح كل البيانات</button>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end;">
+        <button class="btn" onclick="closeSettingsModal()">إغلاق</button>
+        <button class="btn btn-success" onclick="saveSettings()">حفظ الإعدادات</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden export preview -->
+  <div id="exportPreview"></div>
+
+  <script>
+    // --- Data Model ---
+    const LS_KEYS = {
+      clans: 'los_clans_v1',
+      players: 'los_players_v1',
+      rewards: 'los_rewards_v1',
+      settings: 'los_settings_v1'
+    };
+
+    function loadJSON(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch { return fallback; }
+    }
+    function saveJSON(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    let clans = loadJSON(LS_KEYS.clans, []);
+    let players = loadJSON(LS_KEYS.players, []);
+    let rewards = loadJSON(LS_KEYS.rewards, []);
+    let settings = loadJSON(LS_KEYS.settings, { appPassword: '' });
+
+    let currentClanId = null;
+    let currentClanPlayerReportId = null;
+    let currentFullReportClanId = null;
+
+    // --- Init ---
+    document.addEventListener('DOMContentLoaded', () => {
+      if (settings.appPassword && settings.appPassword.trim() !== '') {
+        const attempt = prompt('أدخل كلمة مرور الواجهة للمتابعة:');
+        if (attempt !== settings.appPassword) {
+          document.body.innerHTML = '<div style="padding:40px; text-align:center; color:#ff7b7b;">كلمة المرور غير صحيحة. أعد تحميل الصفحة وحاول مجددًا.</div>';
+          return;
+        }
+      }
+      renderHome();
+      const today = new Date().toISOString().slice(0,10);
+      const firstDay = new Date(new Date().getFullYear(), new Date().getMonth(), 1).toISOString().slice(0,10);
+      ['quickRewardDate','rewardDate','fullReportDateFrom'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = id === 'fullReportDateFrom' ? firstDay : today;
+      });
+      ['fullReportDateTo'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = today;
+      });
+    });
+
+    // --- Navigation ---
+    function showHome() {
+      document.getElementById('homeView').style.display = 'block';
+      document.getElementById('clanDetailView').style.display = 'none';
+      document.getElementById('clanFullReportView').style.display = 'none';
+      currentClanId = null;
+      renderHome();
+    }
+    function showClanDetail(clanId) {
+      currentClanId = clanId;
+      document.getElementById('homeView').style.display = 'none';
+      document.getElementById('clanDetailView').style.display = 'block';
+      document.getElementById('clanFullReportView').style.display = 'none';
+      renderClanDetail();
+    }
+    function showClanFullReport() {
+      document.getElementById('homeView').style.display = 'none';
+      document.getElementById('clanDetailView').style.display = 'none';
+      document.getElementById('clanFullReportView').style.display = 'block';
+      populateFullReportClanSelect();
+    }
+
+    // --- Rendering Home ---
+    function renderHome() {
+      document.getElementById('clansCount').textContent = clans.length;
+      document.getElementById('playersCount').textContent = players.length;
+      document.getElementById('rewardsCount').textContent = rewards.length;
+
+      const grid = document.getElementById('clansGrid');
+      grid.innerHTML = '';
+      const empty = document.getElementById('emptyState');
+      empty.style.display = clans.length ? 'none' : 'block';
+
+      clans.forEach(c => {
+        const cPlayers = players.filter(p => p.clanId === c.id);
+        const cPlayerIds = cPlayers.map(p => p.id);
+        const cRewards = rewards.filter(r => cPlayerIds.includes(r.playerId));
+        const totalPlayers = cPlayers.length;
+        const totalDue = cRewards.reduce((s,r) => s + (Number(r.value)||0), 0);
+        const totalPaid = cRewards.filter(r => r.paid).reduce((s,r) => s + (Number(r.value)||0), 0);
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.onclick = (e) => {
+          if (e.target.closest('.card-actions')) return;
+          showClanDetail(c.id);
+        };
+        card.innerHTML = `
+          <div class="card-title">${escapeHtml(c.name)}</div>
+          <div class="small">${c.note ? escapeHtml(c.note) : ''}</div>
+          <div class="tiles">
+            <div class="tile">
+              <div class="tile-label">عدد الأعضاء</div>
+              <div class="tile-value">${totalPlayers}</div>
+            </div>
+            <div class="tile">
+              <div class="tile-label">المستحقة ($)</div>
+              <div class="tile-value">${fmtUSD(totalDue)}</div>
+            </div>
+            <div class="tile">
+              <div class="tile-label">المدفوعة ($)</div>
+              <div class="tile-value">${fmtUSD(totalPaid)}</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-primary" onclick="showClanDetail('${c.id}')">دخول وإدارة اللاعبين</button>
+            <button class="btn" onclick="editClan('${c.id}')">تعديل الكلان</button>
+            <button class="btn btn-danger" onclick="deleteClan('${c.id}')">حذف الكلان</button>
+            <button class="btn" onclick="openDuplicateModal('${c.id}')">نسخ الكلان</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // --- Clan Full Report ---
+    function populateFullReportClanSelect() {
+      const sel = document.getElementById('fullReportClanSelect');
+      sel.innerHTML = '';
+      if (!clans.length) {
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = 'لا توجد كلانات — أضف كلانًا أولًا';
+        sel.appendChild(opt);
+        document.getElementById('clanFullReportContent').style.display = 'none';
+        return;
+      }
+      clans.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = c.name;
+        sel.appendChild(opt);
+      });
+      currentFullReportClanId = clans[0].id;
+      renderClanFullReport();
+    }
+
+    function onClanFullReportSelectionChange() {
+      currentFullReportClanId = document.getElementById('fullReportClanSelect').value;
+      renderClanFullReport();
+    }
+
+    function renderClanFullReport() {
+      const clanId = currentFullReportClanId;
+      const from = document.getElementById('fullReportDateFrom').value;
+      const to = document.getElementById('fullReportDateTo').value;
+      if (!clanId || !from || !to) {
+        document.getElementById('clanFullReportContent').style.display = 'none';
+        return;
+      }
+
+      const c = clans.find(x => x.id === clanId);
+      if (!c) return;
+
+      const cPlayers = players.filter(p => p.clanId === clanId);
+      const cPlayerIds = cPlayers.map(p => p.id);
+      const filteredRewards = rewards.filter(r => cPlayerIds.includes(r.playerId) && r.date >= from && r.date <= to);
+
+      const membersRows = cPlayers.map(p => {
+        const prewards = filteredRewards.filter(r => r.playerId === p.id);
+        const count = prewards.length;
+        const due = prewards.reduce((s,r) => s + (Number(r.value)||0), 0);
+        const paid = prewards.filter(r => r.paid).reduce((s,r) => s + (Number(r.value)||0), 0);
+        const unpaid = due - paid;
+        return { player: p, count, due, paid, unpaid };
+      });
+
+      const totalDue = membersRows.reduce((s,r) => s + r.due, 0);
+      const totalPaid = membersRows.reduce((s,r) => s + r.paid, 0);
+
+      document.getElementById('frMembersCount').textContent = cPlayers.length;
+      document.getElementById('frRewardsCount').textContent = filteredRewards.length;
+      document.getElementById('frDue').textContent = fmtUSD(totalDue);
+      document.getElementById('frPaid').textContent = fmtUSD(totalPaid);
+
+      const tbody = document.getElementById('frMembersBody');
+      tbody.innerHTML = '';
+      membersRows.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="col-player"><strong>${escapeHtml(row.player.name)}</strong></td>
+          <td class="col-tag"><span class="tag">${escapeHtml(row.player.tag||'')}</span></td>
+          <td class="col-count">${row.count}</td>
+          <td class="col-due">${fmtUSD(row.due)}</td>
+          <td class="col-paid">${fmtUSD(row.paid)}</td>
+          <td class="col-unpaid">${fmtUSD(row.unpaid)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('clanFullReportContent').style.display = 'block';
+    }
+
+    function exportClanFullReportImage() {
+      const clanId = currentFullReportClanId;
+      const from = document.getElementById('fullReportDateFrom').value;
+      const to = document.getElementById('fullReportDateTo').value;
+      if (!clanId || !from || !to) return alert('اختر كلانًا وحدد فترة زمنية.');
+      const c = clans.find(x => x.id === clanId);
+      if (!c) return;
+
+      const cPlayers = players.filter(p => p.clanId === clanId);
+      const cPlayerIds = cPlayers.map(p => p.id);
+      const filteredRewards = rewards.filter(r => cPlayerIds.includes(r.playerId) && r.date >= from && r.date <= to);
+
+      const membersRows = cPlayers.map(p => {
+        const prewards = filteredRewards.filter(r => r.playerId === p.id);
+        const count = prewards.length;
+        const due = prewards.reduce((s,r) => s + (Number(r.value)||0), 0);
+        const paid = prewards.filter(r => r.paid).reduce((s,r) => s + (Number(r.value)||0), 0);
+        const unpaid = due - paid;
+        return { player: p, count, due, paid, unpaid };
+      });
+
+      const totalDue = membersRows.reduce((s,r) => s + r.due, 0);
+      const totalPaid = membersRows.reduce((s,r) => s + r.paid, 0);
+      const totalCount = filteredRewards.length;
+
+      const preview = document.getElementById('exportPreview');
+      preview.innerHTML = '';
+      const wrap = document.createElement('div');
+      wrap.innerHTML = `
+        <h2>تقرير كلان كامل — ${escapeHtml(c.name)}</h2>
+        <div class="meta">الفترة: ${from} إلى ${to} • ${cPlayers.length} عضو • ${totalCount} مكافأة</div>
+        <div class="summary">
+          <div class="box"><div class="label">أفراد الكلان</div><div class="val">${cPlayers.length}</div></div>
+          <div class="box"><div class="label">المكافآت (عدد)</div><div class="val">${totalCount}</div></div>
+          <div class="box"><div class="label">المستحقة ($)</div><div class="val">${fmtUSD(totalDue)}</div></div>
+          <div class="box"><div class="label">المدفوعة ($)</div><div class="val">${fmtUSD(totalPaid)}</div></div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th class="col-player">اللاعب</th>
+              <th class="col-tag">تاغ القرية</th>
+              <th class="col-count">عدد الجوائز</th>
+              <th class="col-due">المستحقة ($)</th>
+              <th class="col-paid">المدفوعة ($)</th>
+              <th class="col-unpaid">غير المدفوعة ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${membersRows.map(row => `<tr>
+              <td class="col-player">${escapeHtml(row.player.name)}</td>
+              <td class="col-tag">${escapeHtml(row.player.tag||'')}</td>
+              <td class="col-count">${row.count}</td>
+              <td class="col-due">${fmtUSD(row.due)}</td>
+              <td class="col-paid">${fmtUSD(row.paid)}</td>
+              <td class="col-unpaid">${fmtUSD(row.unpaid)}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+        <div class="meta" style="margin-top:12px;">تم التصدير من برنامج LORDS OF SYRIA — إهداء من موكا إلى اللورد عبود</div>
+      `;
+      preview.appendChild(wrap);
+
+      html2canvas(preview, { backgroundColor: '#0b0f14', scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `clan_full_report_${c.name.replace(/\s+/g,'_')}_${from}_to_${to}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(err => {
+        alert('فشل تصدير الصورة: ' + err.message);
+      });
+    }
+
+    function exportClanFullReportCSV() {
+      const clanId = currentFullReportClanId;
+      const from = document.getElementById('fullReportDateFrom').value;
+      const to = document.getElementById('fullReportDateTo').value;
+      if (!clanId || !from || !to) return alert('اختر كلانًا وحدد فترة زمنية.');
+      const c = clans.find(x => x.id === clanId);
+      if (!c) return;
+
+      const cPlayers = players.filter(p => p.clanId === clanId);
+      const cPlayerIds = cPlayers.map(p => p.id);
+      const filteredRewards = rewards.filter(r => cPlayerIds.includes(r.playerId) && r.date >= from && r.date <= to);
+
+      const membersRows = cPlayers.map(p => {
+        const prewards = filteredRewards.filter(r => r.playerId === p.id);
+        const count = prewards.length;
+        const due = prewards.reduce((s,r) => s + (Number(r.value)||0), 0);
+        const paid = prewards.filter(r => r.paid).reduce((s,r) => s + (Number(r.value)||0), 0);
+        const unpaid = due - paid;
+        return { player: p, count, due, paid, unpaid };
+      });
+
+      const rows = [];
+      rows.push(['تقرير كلان كامل', c.name, 'من', from, 'إلى', to]);
+      rows.push(['أفراد الكلان', cPlayers.length]);
+      const totalCount = filteredRewards.length;
+      const totalDue = membersRows.reduce((s,r) => s + r.due, 0);
+      const totalPaid = membersRows.reduce((s,r) => s + r.paid, 0);
+      rows.push(['المكافآت (عدد)', totalCount]);
+      rows.push(['المستحقة ($)', totalDue.toFixed(2)]);
+      rows.push(['المدفوعة ($)', totalPaid.toFixed(2)]);
+      rows.push([]);
+      rows.push(['اللاعب','تاغ القرية','عدد الجوائز','المستحقة ($)','المدفوعة ($)','غير المدفوعة ($)']);
+      membersRows.forEach(row => {
+        rows.push([row.player.name, row.player.tag||'', String(row.count), row.due.toFixed(2), row.paid.toFixed(2), row.unpaid.toFixed(2)]);
+      });
+
+      const csv = rows.map(row => row.map(cell => {
+        const s = String(cell ?? '');
+        if (/[",\n]/.test(s)) return `"${s.replace(/"/g,'""')}"`;
+        return s;
+      }).join(',')).join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `clan_full_report_${c.name.replace(/\s+/g,'_')}_${from}_to_${to}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // --- Clan Detail ---
+    function renderClanDetail() {
+      const c = clans.find(x => x.id === currentClanId);
+      if (!c) return showHome();
+      document.getElementById('detailClanName').textContent = c.name;
+      document.getElementById('detailClanNote').textContent = c.note || '';
+
+      renderPlayersTable();
+      renderClanRewardsTable();
+      populateClanPlayerReportSelect();
+    }
+
+    function renderPlayersTable() {
+      const tbody = document.getElementById('playersTableBody');
+      tbody.innerHTML = '';
+      const c = clans.find(x => x.id === currentClanId);
+      if (!c) return;
+      const cPlayers = players.filter(p => p.clanId === c.id);
+      const q = (document.getElementById('playerSearch').value || '').toLowerCase().trim();
+      const filtered = q
+        ? cPlayers.filter(p => (p.name||'').toLowerCase().includes(q) || (p.tag||'').toLowerCase().includes(q))
+        : cPlayers;
+
+      if (!filtered.length) {
+        tbody.innerHTML = '<tr><td colspan="7" class="muted">لا يوجد لاعبون مطابقون.</td></tr>';
+        return;
+      }
+
+      filtered.forEach(p => {
+        const pRewards = rewards.filter(r => r.playerId === p.id);
+        const due = pRewards.reduce((s,r) => s + (Number(r.value)||0), 0);
+        const paid = pRewards.filter(r => r.paid).reduce((s,r) => s + (Number(r.value)||0), 0);
+        const remaining = due - paid;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${escapeHtml(p.name)}</strong></td>
+          <td><span class="tag">${escapeHtml(p.tag||'')}</span></td>
+          <td class="muted">${escapeHtml(p.note||'')}</td>
+          <td style="text-align:left;"><span class="usd">${fmtUSD(due)}</span></td>
+          <td style="text-align:left;"><span class="usd">${fmtUSD(paid)}</span></td>
+          <td style="text-align:left;"><span class="usd">${fmtUSD(remaining)}</span></td>
+          <td>
+            <div class="inline-actions">
+              <button class="btn" onclick="openEditPlayer('${p.id}')">تعديل</button>
+              <button class="btn btn-danger" onclick="deletePlayer('${p.id}')">حذف</button>
+              <button class="btn btn-success" onclick="openRewardsForPlayer('${p.id}')">المكافآت</button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderClanRewardsTable() {
+      const tbody = document.getElementById('clanRewardsBody');
+      tbody.innerHTML = '';
+      const c = clans.find(x => x.id === currentClanId);
+      if (!c) return;
+      const cPlayers = players.filter(p => p.clanId === c.id);
+      const cPlayerIds = cPlayers.map(p => p.id);
+      const cRewards = rewards.filter(r => cPlayerIds.includes(r.playerId)).sort((a,b) => (b.date||'').localeCompare(a.date||''));
+
+      if (!cRewards.length) {
+        tbody.innerHTML = '<tr><td colspan="7" class="muted">لا توجد مكافآت مسجّلة لهذا الكلان بعد.</td></tr>';
+        return;
+      }
+
+      cRewards.forEach(r => {
+        const p = players.find(x => x.id === r.playerId);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.date || ''}</td>
+          <td>${p ? escapeHtml(p.name) : '—'}</td>
+          <td>${escapeHtml(r.type||'')}</td>
+          <td class="muted">${escapeHtml(r.note||'')}</td>
+          <td style="text-align:left;"><span class="usd">${fmtUSD(r.value||0)}</span></td>
+          <td>
+            <label class="paid-flag ${r.paid ? 'yes' : ''}" style="cursor:pointer;">
+              <span class="check"></span>
+              <span>${r.paid ? 'مدفوع' : 'غير مدفوع'}</span>
+              <input type="checkbox" ${r.paid ? 'checked' : ''}
+                onchange="togglePaid('${r.id}', this.checked)" style="margin-right:6px;" />
+            </label>
+          </td>
+          <td>
+            <div class="inline-actions">
+              <button class="btn" onclick="openEditRewardModal('${r.id}')">تعديل</button>
+              <button class="btn btn-danger" onclick="deleteRewardInline('${r.id}')">حذف</button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function clearClanRewards() {
+      const c = clans.find(x => x.id === currentClanId);
+      if (!c) return;
+      if (!confirm(`هل أنت متأكد من مسح جميع سجلات المكافآت لهذا الكلان "${c.name}"؟ لا يمكن التراجع عن هذا الإجراء.`)) return;
+      const cPlayers = players.filter(p => p.clanId === currentClanId);
+      const cPlayerIds = cPlayers.map(p => p.id);
+      rewards = rewards.filter(r => !cPlayerIds.includes(r.playerId));
+      saveJSON(LS_KEYS.rewards, rewards);
+      renderClanDetail();
+      alert('تم مسح سجلات المكافآت لهذا الكلان.');
+    }
+
+    // --- Clan Player Report ---
+    function populateClanPlayerReportSelect() {
+      const sel = document.getElementById('clanPlayerReportSelect');
+      sel.innerHTML = '';
+      const c = clans.find(x => x.id === currentClanId);
+      if (!c) {
+        document.getElementById('clanPlayerReportContent').style.display = 'none';
+        return;
+      }
+      const cPlayers = players.filter(p => p.clanId === c.id);
+      const playersWithRewards = cPlayers.filter(p => rewards.some(r => r.playerId === p.id));
+
+      if (!playersWithRewards.length) {
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = 'لا يوجد لاعبون في هذا الكلان لديهم مكافآت مسجّلة بعد.';
+        sel.appendChild(opt);
+        document.getElementById('clanPlayerReportContent').style.display = 'none';
+        return;
+      }
+
+      playersWithRewards.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = `${p.name} — ${p.tag || ''}`;
+        sel.appendChild(opt);
+      });
+      currentClanPlayerReportId = playersWithRewards[0].id;
+      renderClanPlayerReport();
+    }
+
+    function renderClanPlayerReport() {
+      const playerId = document.getElementById('clanPlayerReportSelect').value;
+      if (!playerId) {
+        document.getElementById('clanPlayerReportContent').style.display = 'none';
+        return;
+      }
+      currentClanPlayerReportId = playerId;
+      const p = players.find(x => x.id === playerId);
+      if (!p) return;
+
+      const prewards = rewards.filter(r => r.playerId === playerId).sort((a,b) => (b.date||'').localeCompare(a.date||''));
+      const count = prewards.length;
+      const due = prewards.reduce((s,r) => s + (Number(r.value)||0), 0);
+      const paid = prewards.filter(r => r.paid).reduce((s,r) => s + (Number(r.value)||0), 0);
+      const remaining = due - paid;
+
+      document.getElementById('clanSumCount').textContent = count;
+      document.getElementById('clanSumDue').textContent = fmtUSD(due);
+      document.getElementById('clanSumPaid').textContent = fmtUSD(paid);
+      document.getElementById('clanSumRemaining').textContent = fmtUSD(remaining);
+
+      const tbody = document.getElementById('clanPlayerReportBody');
+      tbody.innerHTML = '';
+      if (!prewards.length) {
+        tbody.innerHTML = '<tr><td colspan="6" class="muted">لا توجد مكافآت لهذا اللاعب.</td></tr>';
+        document.getElementById('clanPlayerReportContent').style.display = 'block';
+        return;
+      }
+      prewards.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.date || ''}</td>
+          <td>${escapeHtml(r.type||'')}</td>
+          <td class="muted">${escapeHtml(r.note||'')}</td>
+          <td style="text-align:left;"><span class="usd">${fmtUSD(r.value||0)}</span></td>
+          <td>
+            <label class="paid-flag ${r.paid ? 'yes' : ''}" style="cursor:pointer;">
+              <span class="check"></span>
+              <span>${r.paid ? 'مدفوع' : 'غير مدفوع'}</span>
+              <input type="checkbox" ${r.paid ? 'checked' : ''}
+                onchange="togglePaid('${r.id}', this.checked)" style="margin-right:6px;" />
+            </label>
+          </td>
+          <td>
+            <div class="inline-actions">
+              <button class="btn" onclick="openEditRewardModal('${r.id}')">تعديل</button>
+              <button class="btn btn-danger" onclick="deleteRewardInline('${r.id}')">حذف</button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      document.getElementById('clanPlayerReportContent').style.display = 'block';
+    }
+
+    function exportClanPlayerReportImage() {
+      const playerId = currentClanPlayerReportId;
+      if (!playerId) return alert('اختر لاعبًا أولًا.');
+      const p = players.find(x => x.id === playerId);
+      if (!p) return;
+      const c = clans.find(x => x.id === p.clanId);
+      const prewards = rewards.filter(r => r.playerId === playerId).sort((a,b) => (b.date||'').localeCompare(a.date||''));
+      const due = prewards.reduce((s,r) => s + (Number(r.value)||0), 0);
+      const paid = prewards.filter(r => r.paid).reduce((s,r) => s + (Number(r.value)||0), 0);
+      const remaining = due - paid;
+
+      const preview = document.getElementById('exportPreview');
+      preview.innerHTML = '';
+      const wrap = document.createElement('div');
+      wrap.innerHTML = `
+        <h2>تقرير لاعب — ${escapeHtml(p.name)}</h2>
+        <div class="meta">${c ? escapeHtml(c.name) : ''} • ${p.tag || ''} • ${prewards.length} مكافأة</div>
+        <div class="summary">
+          <div class="box"><div class="label">المكافآت (عدد)</div><div class="val">${prewards.length}</div></div>
+          <div class="box"><div class="label">المستحقة ($)</div><div class="val">${fmtUSD(due)}</div></div>
+          <div class="box"><div class="label">المدفوعة ($)</div><div class="val">${fmtUSD(paid)}</div></div>
+          <div class="box"><div class="label">المتبقي ($)</div><div class="val">${fmtUSD(remaining)}</div></div>
+        </div>
+        <table>
+          <thead><tr><th>التاريخ</th><th>النوع</th><th>ملاحظة</th><th style="text-align:left;direction:ltr;">القيمة ($)</th><th>مدفوع</th></tr></thead>
+          <tbody>
+            ${prewards.map(r => `<tr>
+              <td>${r.date||''}</td>
+              <td>${escapeHtml(r.type||'')}</td>
+              <td>${escapeHtml(r.note||'')}</td>
+              <td style="text-align:left;direction:ltr;">${fmtUSD(r.value||0)}</td>
+              <td>${r.paid ? 'نعم' : 'لا'}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+        <div class="meta" style="margin-top:12px;">تم التصدير من برنامج LORDS OF SYRIA — إهداء من موكا إلى اللورد عبود</div>
+      `;
+      preview.appendChild(wrap);
+
+      html2canvas(preview, { backgroundColor: '#0b0f14', scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `player_report_${p.name.replace(/\s+/g,'_')}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(err => {
+        alert('فشل تصدير الصورة: ' + err.message);
+      });
+    }
+
+    // --- Clan CRUD ---
+    function openClanModal() {
+      document.getElementById('clanModalTitle').textContent = 'كلان جديد';
+      document.getElementById('clanId').value = '';
+      document.getElementById('clanName').value = '';
+      document.getElementById('clanNote').value = '';
+      document.getElementById('clanModal').style.display = 'flex';
+    }
+    function closeClanModal() {
+      document.getElementById('clanModal').style.display = 'none';
+    }
+    function saveClan() {
+      const id = document.getElementById('clanId').value || genId();
+      const name = (document.getElementById('clanName').value || '').trim();
+      if (!name) return alert('الرجاء كتابة اسم الكلان.');
+      const note = (document.getElementById('clanNote').value || '').trim();
+
+      const exists = clans.find(x => x.id === id);
+      if (exists) {
+        exists.name = name;
+        exists.note = note;
+      } else {
+        clans.push({ id, name, note, createdAt: Date.now() });
+      }
+      saveJSON(LS_KEYS.clans, clans);
+      closeClanModal();
+      renderHome();
+    }
+    function editClan(id) {
+      const c = clans.find(x => x.id === id);
+      if (!c) return;
+      document.getElementById('clanModalTitle').textContent = 'تعديل الكلان';
+      document.getElementById('clanId').value = c.id;
+      document.getElementById('clanName').value = c.name;
+      document.getElementById('clanNote').value = c.note || '';
+      document.getElementById('clanModal').style.display = 'flex';
+    }
+    function deleteClan(id) {
+      if (!confirm('هل أنت متأكد من حذف هذا الكلان وجميع لاعبيه ومكافآتهم؟')) return;
+      const pIds = players.filter(p => p.clanId === id).map(p => p.id);
+      clans = clans.filter(x => x.id !== id);
+      players = players.filter(p => p.clanId !== id);
+      rewards = rewards.filter(r => !pIds.includes(r.playerId));
+      saveJSON(LS_KEYS.clans, clans);
+      saveJSON(LS_KEYS.players, players);
+      saveJSON(LS_KEYS.rewards, rewards);
+      if (currentClanId === id) showHome(); else renderHome();
+    }
+    function editCurrentClan() {
+      if (!currentClanId) return;
+      editClan(currentClanId);
+    }
+    function deleteCurrentClan() {
+      if (!currentClanId) return;
+      deleteClan(currentClanId);
+    }
+
+    // --- Duplicate Clan ---
+    function openDuplicateModal(id) {
+      const c = clans.find(x => x.id === id);
+      if (!c) return;
+      document.getElementById('dupClanId').value = id;
+      document.getElementById('dupClanName').value = c.name + ' (نسخة)';
+      document.getElementById('dupOption').value = 'card';
+      document.getElementById('duplicateModal').style.display = 'flex';
+    }
+    function closeDuplicateModal() {
+      document.getElementById('duplicateModal').style.display = 'none';
+    }
+    function confirmDuplicate() {
+      const srcId = document.getElementById('dupClanId').value;
+      const newName = (document.getElementById('dupClanName').value || '').trim();
+      const opt = document.getElementById('dupOption').value;
+      const src = clans.find(x => x.id === srcId);
+      if (!src || !newName) return alert('بيانات غير صحيحة.');
+
+      const newId = genId();
+      clans.push({ id: newId, name: newName, note: src.note || '', createdAt: Date.now() });
+
+      if (opt === 'full') {
+        const srcPlayers = players.filter(p => p.clanId === srcId);
+        const mapOldNewPlayer = {};
+        srcPlayers.forEach(p => {
+          const newPid = genId();
+          mapOldNewPlayer[p.id] = newPid;
+          players.push({ id: newPid, name: p.name, tag: p.tag, clanId: newId, note: p.note || '', createdAt: Date.now() });
+        });
+        const srcRewards = rewards.filter(r => r.playerId in mapOldNewPlayer);
+        srcRewards.forEach(r => {
+          const newPid = mapOldNewPlayer[r.playerId];
+          rewards.push({
+            id: genId(),
+            playerId: newPid,
+            type: r.type,
+            value: r.value,
+            date: r.date,
+            note: r.note || '',
+            paid: !!r.paid,
+            createdAt: Date.now()
+          });
+        });
+      }
+
+      saveJSON(LS_KEYS.clans, clans);
+      saveJSON(LS_KEYS.players, players);
+      saveJSON(LS_KEYS.rewards, rewards);
+      closeDuplicateModal();
+      renderHome();
+      alert('تم نسخ الكلان بنجاح.');
+    }
+
+    // --- Player CRUD ---
+    function populateClanSelect(selectEl, preferClanId=null) {
+      selectEl.innerHTML = '';
+      if (!clans.length) {
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = 'لا توجد كلانات — أضف كلانًا أولًا';
+        selectEl.appendChild(opt);
+        return;
+      }
+      clans.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = c.name;
+        if (preferClanId && c.id === preferClanId) opt.selected = true;
+        selectEl.appendChild(opt);
+      });
+    }
+
+    function openPlayerModal(preferClanId=null) {
+      document.getElementById('playerModalTitle').textContent = 'لاعب جديد';
+      document.getElementById('playerId').value = '';
+      document.getElementById('playerName').value = '';
+      document.getElementById('playerTag').value = '';
+      document.getElementById('playerNote').value = '';
+      populateClanSelect(document.getElementById('playerClanSelect'), preferClanId);
+      document.getElementById('quickRewardType').value = '';
+      document.getElementById('quickRewardValue').value = '';
+      document.getElementById('quickRewardNote').value = '';
+      document.getElementById('quickRewardDate').value = new Date().toISOString().slice(0,10);
+      document.getElementById('playerModal').style.display = 'flex';
+    }
+    function closePlayerModal() {
+      document.getElementById('playerModal').style.display = 'none';
+    }
+    function openPlayerModalForCurrentClan() {
+      if (!currentClanId) return;
+      openPlayerModal(currentClanId);
+    }
+    function savePlayer() {
+      const id = document.getElementById('playerId').value || genId();
+      const name = (document.getElementById('playerName').value || '').trim();
+      const tag = (document.getElementById('playerTag').value || '').trim();
+      const clanId = document.getElementById('playerClanSelect').value;
+      const note = (document.getElementById('playerNote').value || '').trim();
+
+      if (!name) return alert('اكتب اسم اللاعب.');
+      if (!tag.startsWith('#')) return alert('تاغ القرية يجب أن يبدأ بـ #');
+      if (!clanId) return alert('اختر كلانًا.');
+
+      const exists = players.find(x => x.id === id);
+      if (exists) {
+        exists.name = name;
+        exists.tag = tag;
+        exists.clanId = clanId;
+        exists.note = note;
+      } else {
+        players.push({ id, name, tag, clanId, note, createdAt: Date.now() });
+      }
+
+      const qType = (document.getElementById('quickRewardType').value || '').trim();
+      const qValue = parseFloat(document.getElementById('quickRewardValue').value || '0');
+      const qDate = document.getElementById('quickRewardDate').value || new Date().toISOString().slice(0,10);
+      const qNote = (document.getElementById('quickRewardNote').value || '').trim();
+      if (qType && !isNaN(qValue)) {
+        rewards.push({
+          id: genId(),
+          playerId: id,
+          type: qType,
+          value: qValue,
+          date: qDate,
+          note: qNote,
+          paid: false,
+          createdAt: Date.now()
+        });
+      }
+
+      saveJSON(LS_KEYS.players, players);
+      saveJSON(LS_KEYS.rewards, rewards);
+      closePlayerModal();
+      if (currentClanId) renderClanDetail(); else renderHome();
+    }
+    function openEditPlayer(id) {
+      const p = players.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('editPlayerId').value = p.id;
+      document.getElementById('editPlayerName').value = p.name;
+      document.getElementById('editPlayerTag').value = p.tag;
+      document.getElementById('editPlayerNote').value = p.note || '';
+      document.getElementById('editPlayerModal').style.display = 'flex';
+    }
+    function closeEditPlayerModal() {
+      document.getElementById('editPlayerModal').style.display = 'none';
+    }
+    function saveEditPlayer() {
+      const id = document.getElementById('editPlayerId').value;
+      const p = players.find(x => x.id === id);
+      if (!p) return;
+      const name = (document.getElementById('editPlayerName').value || '').trim();
+      const tag = (document.getElementById('editPlayerTag').value || '').trim();
+      const note = (document.getElementById('editPlayerNote').value || '').trim();
+      if (!name) return alert('اكتب اسم اللاعب.');
+      if (!tag.startsWith('#')) return alert('تاغ القرية يجب أن يبدأ بـ #');
+      p.name = name;
+      p.tag = tag;
+      p.note = note;
+      saveJSON(LS_KEYS.players, players);
+      closeEditPlayerModal();
+      renderClanDetail();
+    }
+    function deletePlayer(id) {
+      const p = players.find(x => x.id === id);
+      if (!p) return;
+      if (!confirm(`حذف اللاعب "${p.name}" وجميع مكافآته؟`)) return;
+      players = players.filter(x => x.id !== id);
+      rewards = rewards.filter(r => r.playerId !== id);
+      saveJSON(LS_KEYS.players, players);
+      saveJSON(LS_KEYS.rewards, rewards);
+      renderClanDetail();
+    }
+
+    // --- Rewards (per player) with Paid flag ---
+    function openRewardsForPlayer(playerId) {
+      const p = players.find(x => x.id === playerId);
+      if (!p) return;
+      const type = prompt(`إضافة مكافأة لـ ${p.name}\nنوع المكافأة:`);
+      if (!type) return;
+      const valueStr = prompt('القيمة ($):');
+      if (!valueStr) return;
+      const value = parseFloat(valueStr);
+      if (isNaN(value)) return alert('قيمة غير صحيحة.');
+      const date = prompt('التاريخ (YYYY-MM-DD):', new Date().toISOString().slice(0,10)) || new Date().toISOString().slice(0,10);
+      const note = prompt('ملاحظة المكافأة (اختياري):') || '';
+      rewards.push({ id: genId(), playerId, type, value, date, note, paid: false, createdAt: Date.now() });
+      saveJSON(LS_KEYS.rewards, rewards);
+      renderClanDetail();
+      alert('تمت إضافة المكافأة.');
+    }
+
+    // --- Reward Modal (within clan) ---
+    function openRewardModalForCurrentClan() {
+      if (!currentClanId) return;
+      const c = clans.find(x => x.id === currentClanId);
+      if (!c) return;
+      document.getElementById('rewardClanId').value = currentClanId;
+      document.getElementById('rewardId').value = '';
+      document.getElementById('rewardClanNameDisplay').textContent = c.name;
+      document.getElementById('rewardModalTitle').innerHTML = 'إضافة مكافأة — <span id="rewardClanNameDisplay">' + c.name + '</span>';
+
+      const clanPlayers = players.filter(p => p.clanId === currentClanId);
+      const sel = document.getElementById('rewardPlayerSelect');
+      sel.innerHTML = '';
+      if (!clanPlayers.length) {
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = 'لا يوجد لاعبين في هذا الكلان — أضف لاعبين أولًا';
+        sel.appendChild(opt);
+      } else {
+        clanPlayers.forEach(p => {
+          const opt = document.createElement('option');
+          opt.value = p.id;
+          opt.textContent = `${p.name} — ${p.tag || ''}`;
+          sel.appendChild(opt);
+        });
+      }
+
+      document.getElementById('rewardType').value = '';
+      document.getElementById('rewardValue').value = '';
+      document.getElementById('rewardNote').value = '';
+      document.getElementById('rewardDate').value = new Date().toISOString().slice(0,10);
+      document.getElementById('rewardPaid').value = '0';
+      document.getElementById('rewardModal').style.display = 'flex';
+    }
+    function closeRewardModal() {
+      document.getElementById('rewardModal').style.display = 'none';
+    }
+    function saveRewardFromModal() {
+      const rewardId = document.getElementById('rewardId').value;
+      const playerId = document.getElementById('rewardPlayerSelect').value;
+      const type = (document.getElementById('rewardType').value || '').trim();
+      const value = parseFloat(document.getElementById('rewardValue').value || '0');
+      const date = document.getElementById('rewardDate').value || new Date().toISOString().slice(0,10);
+      const note = (document.getElementById('rewardNote').value || '').trim();
+      const paid = document.getElementById('rewardPaid').value === '1';
+
+      if (!playerId) return alert('اختر لاعبًا.');
+      if (!type) return alert('اكتب نوع المكافأة.');
+      if (isNaN(value)) return alert('القيمة غير صحيحة.');
+
+      if (rewardId) {
+        const r = rewards.find(x => x.id === rewardId);
+        if (!r) return alert('المكافأة غير موجودة.');
+        r.playerId = playerId;
+        r.type = type;
+        r.value = value;
+        r.date = date;
+        r.note = note;
+        r.paid = paid;
+      } else {
+        rewards.push({ id: genId(), playerId, type, value, date, note, paid, createdAt: Date.now() });
+      }
+
+      saveJSON(LS_KEYS.rewards, rewards);
+      closeRewardModal();
+      renderClanDetail();
+      alert('تم حفظ المكافأة.');
+    }
+
+    function openEditRewardModal(rewardId) {
+      const r = rewards.find(x => x.id === rewardId);
+      if (!r) return;
+      const p = players.find(x => x.id === r.playerId);
+      const c = p ? clans.find(x => x.id === p.clanId) : null;
+      if (!c) return;
+
+      document.getElementById('rewardClanId').value = p.clanId;
+      document.getElementById('rewardId').value = r.id;
+      document.getElementById('rewardClanNameDisplay').textContent = c.name;
+      document.getElementById('rewardModalTitle').innerHTML = 'تعديل مكافأة — <span id="rewardClanNameDisplay">' + c.name + '</span>';
+
+      const clanPlayers = players.filter(x => x.clanId === p.clanId);
+      const sel = document.getElementById('rewardPlayerSelect');
+      sel.innerHTML = '';
+      clanPlayers.forEach(pl => {
+        const opt = document.createElement('option');
+        opt.value = pl.id;
+        opt.textContent = `${pl.name} — ${pl.tag || ''}`;
+        if (pl.id === r.playerId) opt.selected = true;
+        sel.appendChild(opt);
+      });
+
+      document.getElementById('rewardType').value = r.type || '';
+      document.getElementById('rewardValue').value = String(r.value || 0);
+      document.getElementById('rewardNote').value = r.note || '';
+      document.getElementById('rewardDate').value = r.date || new Date().toISOString().slice(0,10);
+      document.getElementById('rewardPaid').value = r.paid ? '1' : '0';
+      document.getElementById('rewardModal').style.display = 'flex';
+    }
+
+    function togglePaid(rewardId, isPaid) {
+      const r = rewards.find(x => x.id === rewardId);
+      if (!r) return;
+      r.paid = !!isPaid;
+      saveJSON(LS_KEYS.rewards, rewards);
+      renderClanDetail();
+    }
+
+    function deleteRewardInline(rewardId) {
+      const r = rewards.find(x => x.id === rewardId);
+      if (!r) return;
+      if (!confirm('حذف هذه المكافأة؟')) return;
+      rewards = rewards.filter(x => x.id !== rewardId);
+      saveJSON(LS_KEYS.rewards, rewards);
+      renderClanDetail();
+    }
+
+    // --- Settings / Backup ---
+    function openSettingsModal() {
+      document.getElementById('appPassword').value = settings.appPassword || '';
+      document.getElementById('googleClientId').value = localStorage.getItem(DRIVE_CLIENT_ID_KEY) || '';
+      document.getElementById('settingsModal').style.display = 'flex';
+    }
+    function closeSettingsModal() {
+      document.getElementById('settingsModal').style.display = 'none';
+    }
+    function saveSettings() {
+      settings.appPassword = (document.getElementById('appPassword').value || '').trim();
+      saveJSON(LS_KEYS.settings, settings);
+      alert('حُفظت الإعدادات. كلمة المرور ستُطلب عند إعادة تحميل الصفحة.');
+      closeSettingsModal();
+    }
+    function backupJSON() {
+      const data = { clans, players, rewards, settings, exportedAt: new Date().toISOString() };
+      const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'lords_of_syria_backup.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    function restoreJSON(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          if (!data.clans || !data.players) throw new Error('ملف غير صالح');
+          if (!confirm('سيتم استبدال البيانات الحالية بالنسخة المستعادة. متابعة؟')) return;
+          clans = data.clans || [];
+          players = data.players || [];
+          rewards = data.rewards || [];
+          settings = data.settings || { appPassword: '' };
+          saveJSON(LS_KEYS.clans, clans);
+          saveJSON(LS_KEYS.players, players);
+          saveJSON(LS_KEYS.rewards, rewards);
+          saveJSON(LS_KEYS.settings, settings);
+          renderHome();
+          alert('تمت الاستعادة بنجاح.');
+        } catch (e) {
+          alert('فشل الاستعادة: ' + e.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+    function hardReset() {
+      if (!confirm('تحذير: سيُحذف كل شيء محليًا. هل أنت متأكد؟')) return;
+      localStorage.removeItem(LS_KEYS.clans);
+      localStorage.removeItem(LS_KEYS.players);
+      localStorage.removeItem(LS_KEYS.rewards);
+      localStorage.removeItem(LS_KEYS.settings);
+      clans = []; players = []; rewards = []; settings = { appPassword: '' };
+      renderHome();
+      alert('تم المسح. يمكنك البدء من جديد.');
+    }
+
+    // --- Export All CSV ---
+    function exportAllCSV() {
+      const rows = [['clanId','clanName','playerId','playerName','playerTag','rewardId','type','value','date','note','paid']];
+      rewards.forEach(r => {
+        const p = players.find(x => x.id === r.playerId);
+        const c = p ? clans.find(x => x.id === p.clanId) : null;
+        rows.push([
+          c ? c.id : '',
+          c ? c.name : '',
+          r.playerId,
+          p ? p.name : '',
+          p ? p.tag : '',
+          r.id,
+          r.type,
+          String(r.value),
+          r.date,
+          r.note || '',
+          r.paid ? 'نعم' : 'لا'
+        ]);
+      });
+      const csv = rows.map(row => row.map(cell => {
+        const s = String(cell ?? '');
+        if (/[",\n]/.test(s)) return `"${s.replace(/"/g,'""')}"`;
+        return s;
+      }).join(',')).join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'lords_of_syria_all_rewards.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // --- Export Clan as Image ---
+    function exportClanImage() {
+      const c = clans.find(x => x.id === currentClanId);
+      if (!c) return;
+      const cPlayers = players.filter(p => p.clanId === c.id);
+      const cPlayerIds = cPlayers.map(p => p.id);
+      const cRewards = rewards.filter(r => cPlayerIds.includes(r.playerId));
+      const totalDue = cRewards.reduce((s,r) => s + (Number(r.value)||0), 0);
+      const totalPaid = cRewards.filter(r => r.paid).reduce((s,r) => s + (Number(r.value)||0), 0);
+      const totalRemaining = totalDue - totalPaid;
+
+      const preview = document.getElementById('exportPreview');
+      preview.innerHTML = '';
+      const wrap = document.createElement('div');
+      wrap.innerHTML = `
+        <h2>${escapeHtml(c.name)}</h2>
+        <div class="meta">${c.note ? escapeHtml(c.note) : ''} • ${cPlayers.length} لاعب • ${cRewards.length} مكافأة</div>
+        <div class="summary">
+          <div class="box"><div class="label">المستحقة ($)</div><div class="val">${fmtUSD(totalDue)}</div></div>
+          <div class="box"><div class="label">المدفوعة ($)</div><div class="val">${fmtUSD(totalPaid)}</div></div>
+          <div class="box"><div class="label">المتبقي ($)</div><div class="val">${fmtUSD(totalRemaining)}</div></div>
+        </div>
+        <div style="font-weight:800; color:#ffd56a; margin-top:12px;">أبرز 10 مكافآت</div>
+        <table>
+          <thead><tr><th>التاريخ</th><th>اللاعب</th><th>النوع</th><th style="text-align:left;direction:ltr;">القيمة ($)</th><th>مدفوع</th></tr></thead>
+          <tbody>
+            ${cRewards.slice(0,10).map(r => {
+              const p = players.find(x => x.id === r.playerId);
+              return `<tr>
+                <td>${r.date||''}</td>
+                <td>${p ? escapeHtml(p.name) : '—'}</td>
+                <td>${escapeHtml(r.type||'')}</td>
+                <td style="text-align:left;direction:ltr;">${fmtUSD(r.value||0)}</td>
+                <td>${r.paid ? 'نعم' : 'لا'}</td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+      `;
+      preview.appendChild(wrap);
+
+      html2canvas(preview, { backgroundColor: '#0b0f14', scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `clan_${c.name.replace(/\s+/g,'_')}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(err => {
+        alert('فشل تصدير الصورة: ' + err.message);
+      });
+    }
+
+
+    // --- Google Drive Sync: manual OAuth Client ID configured in Settings ---
+    const DRIVE_CLIENT_ID_KEY = 'los_google_oauth_client_id_v1';
+    const DRIVE_FILE_NAME = 'lords_of_syria_data.json';
+    const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
+    let driveAccessToken = '';
+    let driveFileId = '';
+    let driveTokenClient = null;
+
+    function setDriveStatus(text, ok=false) {
+      const dot = document.getElementById('driveStatusDot');
+      const label = document.getElementById('driveStatusText');
+      if (dot) dot.classList.toggle('ok', !!ok);
+      if (label) label.textContent = text;
+      const loadBtn = document.getElementById('driveLoadButton');
+      const saveBtn = document.getElementById('driveSaveButton');
+      if (loadBtn) loadBtn.disabled = !ok;
+      if (saveBtn) saveBtn.disabled = !ok;
+    }
+
+    function driveError(error, fallback) {
+      const message = error?.error?.message || error?.error_description || error?.message || fallback || String(error || 'حدث خطأ غير معروف');
+      setDriveStatus('Google Drive: ' + message, false);
+      alert('Google Drive: ' + message);
+    }
+
+    function initGoogleDrive() {
+      const clientId = localStorage.getItem(DRIVE_CLIENT_ID_KEY) || '';
+      if (!clientId) {
+        setDriveStatus('Google Drive: أضف Client ID من الإعدادات', false);
+        return false;
+      }
+      if (!window.google || !google.accounts || !google.accounts.oauth2) {
+        setDriveStatus('Google Drive: جارٍ تحميل مكتبة Google…', false);
+        return false;
+      }
+      driveTokenClient = google.accounts.oauth2.initTokenClient({
+        client_id: clientId,
+        scope: DRIVE_SCOPE,
+        callback: async (response) => {
+          if (response.error) return driveError(response, 'فشل تسجيل الدخول');
+          driveAccessToken = response.access_token;
+          setDriveStatus('Google Drive: متصل — جارٍ البحث عن ملف البيانات', true);
+          await findDriveFile();
+        }
+      });
+      setDriveStatus('Google Drive: جاهز لتسجيل الدخول', false);
+      return true;
+    }
+
+    function applyGoogleClientId() {
+      const input = document.getElementById('googleClientId');
+      const clientId = (input?.value || '').trim();
+      if (!clientId || !clientId.endsWith('.apps.googleusercontent.com')) {
+        alert('ألصق Google OAuth Client ID الصحيح فقط، ويجب أن ينتهي بـ .apps.googleusercontent.com');
+        return;
+      }
+      localStorage.setItem(DRIVE_CLIENT_ID_KEY, clientId);
+      driveAccessToken = '';
+      driveFileId = '';
+      driveTokenClient = null;
+      if (initGoogleDrive()) alert('تم حفظ Client ID. اضغط الآن «تسجيل دخول Google».');
+      else alert('تم حفظ Client ID. انتظر لحظة ثم افتح الإعدادات واضغط تسجيل الدخول.');
+    }
+
+    function driveLogin() {
+      if (!driveTokenClient && !initGoogleDrive()) {
+        alert('أضف Client ID أولًا من: إعدادات ← ربط Google Drive.');
+        return;
+      }
+      driveTokenClient.requestAccessToken({ prompt: driveAccessToken ? '' : 'consent' });
+    }
+
+    async function driveApi(url, options = {}) {
+      const response = await fetch(url, {
+        ...options,
+        headers: { Authorization: `Bearer ${driveAccessToken}`, ...(options.headers || {}) }
+      });
+      const type = response.headers.get('content-type') || '';
+      const result = type.includes('application/json') ? await response.json() : await response.text();
+      if (!response.ok) throw result;
+      return result;
+    }
+
+    async function findDriveFile() {
+      try {
+        const query = encodeURIComponent(`name='${DRIVE_FILE_NAME}' and trashed=false`);
+        const result = await driveApi(`https://www.googleapis.com/drive/v3/files?q=${query}&spaces=drive&fields=files(id,name,modifiedTime)`);
+        driveFileId = result.files?.[0]?.id || '';
+        setDriveStatus(driveFileId ? 'Google Drive: متصل — تم العثور على ملف البيانات' : 'Google Drive: متصل — لا يوجد ملف بعد، استخدم حفظ إلى Drive', true);
+      } catch (error) { driveError(error, 'تعذر البحث في Google Drive'); }
+    }
+
+    function getDriveBackup() {
+      return { version: 12, clans, players, rewards, settings, savedAt: new Date().toISOString() };
+    }
+
+    async function saveToDrive() {
+      if (!driveAccessToken) return driveLogin();
+      try {
+        const metadata = { name: DRIVE_FILE_NAME, mimeType: 'application/json' };
+        const data = getDriveBackup();
+        const form = new FormData();
+        form.append('metadata', new Blob([JSON.stringify(metadata)], {type:'application/json'}));
+        form.append('file', new Blob([JSON.stringify(data, null, 2)], {type:'application/json'}));
+        const url = driveFileId
+          ? `https://www.googleapis.com/upload/drive/v3/files/${driveFileId}?uploadType=multipart`
+          : 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';
+        const result = await driveApi(url, { method: driveFileId ? 'PATCH' : 'POST', body: form });
+        driveFileId = result.id;
+        setDriveStatus('Google Drive: تم الحفظ بنجاح', true);
+        alert('تم حفظ جميع بيانات v12 وإعداداتها في Google Drive بنجاح.');
+      } catch (error) { driveError(error, 'فشل الحفظ في Google Drive'); }
+    }
+
+    async function loadFromDrive() {
+      if (!driveAccessToken) return driveLogin();
+      try {
+        if (!driveFileId) await findDriveFile();
+        if (!driveFileId) return alert('لا يوجد ملف محفوظ في Drive بعد. أنشئ بيانات أو استعد نسخة ثم اضغط «حفظ إلى Drive».');
+        const data = await driveApi(`https://www.googleapis.com/drive/v3/files/${driveFileId}?alt=media`);
+        if (!data || !Array.isArray(data.clans) || !Array.isArray(data.players) || !Array.isArray(data.rewards)) throw new Error('ملف Drive لا يحتوي بيانات برنامج v12 صالحة.');
+        if (!confirm('سيتم استبدال البيانات الموجودة حاليًا بالبيانات المحفوظة في Google Drive. متابعة؟')) return;
+        clans = data.clans;
+        players = data.players;
+        rewards = data.rewards;
+        settings = data.settings || { appPassword: '' };
+        saveJSON(LS_KEYS.clans, clans);
+        saveJSON(LS_KEYS.players, players);
+        saveJSON(LS_KEYS.rewards, rewards);
+        saveJSON(LS_KEYS.settings, settings);
+        showHome();
+        setDriveStatus('Google Drive: تم تحميل البيانات بنجاح', true);
+        alert('تم تحميل كل بيانات v12 والإعدادات من Google Drive.');
+      } catch (error) { driveError(error, 'فشل تحميل البيانات من Google Drive'); }
+    }
+
+    // --- Utils ---
+    function genId() {
+      return Math.random().toString(36).slice(2) + Date.now().toString(36);
+    }
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, s => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[s]));
+    }
+    function fmtUSD(n) {
+      return '$' + Number(n||0).toFixed(2);
+    }
+  </script>
+<script>window.addEventListener("load",()=>setTimeout(initGoogleDrive,700));</script>
 </body>
 </html>
