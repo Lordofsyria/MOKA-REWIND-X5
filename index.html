@@ -37,7 +37,64 @@ function addPlayer(){if(!data.clans.length)return msg('تنبيه','أضف كل�
 function addReward(){if(!data.players.length)return msg('تنبيه','أضف لاعبًا أولًا.');data.rewards.push({id:id(),playerId:data.players[0].id,type:'مكافأة',value:10,date:new Date().toISOString().slice(0,10),paid:false});saveLocal();msg('تمت الإضافة','أضيفت المكافأة محليًا.')}
 function connected(){document.getElementById('dot').classList.add('ok');document.getElementById('status').textContent='متصل — Google Drive جاهز';document.getElementById('signin').style.display='none';document.getElementById('signout').style.display='inline-block';document.getElementById('load').disabled=false;document.getElementById('save').disabled=false}
 function disconnected(){document.getElementById('dot').classList.remove('ok');document.getElementById('status').textContent='غير متصل — سجّل دخول Google';document.getElementById('signin').style.display='inline-block';document.getElementById('signout').style.display='none';document.getElementById('load').disabled=true;document.getElementById('save').disabled=true}
-async function init(){if(!API_KEY||API_KEY==='AIzaSyADx8qKvD-4nHAyi4r6yrqJJcaygDxohTw')return msg('يلزم API Key','افتح index.html وضع API Key الحقيقي ثم ارفع الملف إلى GitHub.');try{await gapi.client.init({apiKey:API_KEY,discoveryDocs:[DISCOVERY]});gapiReady=true;tokenClient=google.accounts.oauth2.initTokenClient({client_id:CLIENT_ID,scope:SCOPE,callback:async r=>{if(r.error)return msg('فشل الدخول',r.error);gapi.client.setToken(r);connected();await findFile()}})}catch(e){console.error(e);msg('فشل تهيئة Google API','تحقق من API Key وتفعيل Google Drive API.')}}
+async function init() {
+  try {
+    if (!API_KEY || API_KEY === 'AIzaSyADx8qKvD-4nHAyi4r6yrqJJcaygDxohTw') {
+      throw new Error(
+        'لم يتم وضع API Key الحقيقي داخل ملف index.html'
+      );
+    }
+
+    if (!CLIENT_ID || CLIENT_ID === 'YOUR_GOOGLE_CLIENT_ID') {
+      throw new Error(
+        'لم يتم وضع Client ID الصحيح داخل ملف index.html'
+      );
+    }
+
+    await gapi.client.init({
+      apiKey: API_KEY,
+      discoveryDocs: [DISCOVERY]
+    });
+
+    gapiReady = true;
+
+    tokenClient = google.accounts.oauth2.initTokenClient({
+      client_id: CLIENT_ID,
+      scope: SCOPE,
+
+      callback: async (response) => {
+        if (response.error) {
+          msg(
+            'فشل تسجيل الدخول',
+            response.error
+          );
+          return;
+        }
+
+        gapi.client.setToken(response);
+
+        connected();
+
+        await findFile();
+      }
+    });
+  } catch (error) {
+    console.error(
+      'Google initialization error:',
+      error
+    );
+
+    const details =
+      error?.result?.error?.message ||
+      error?.message ||
+      JSON.stringify(error);
+
+    msg(
+      'فشل تهيئة Google API',
+      details
+    );
+  }
+}
 function signIn(){if(!gapiReady)return msg('انتظر قليلًا','لم تكتمل تهيئة Google API بعد.');tokenClient.requestAccessToken({prompt:'consent'})}
 function signOut(){const t=gapi.client.getToken();if(t)google.accounts.oauth2.revoke(t.access_token,()=>{gapi.client.setToken('');driveFileId=null;disconnected()})}
 async function findFile(){try{const r=await gapi.client.drive.files.list({q:`name='${FILE_NAME}' and trashed=false`,fields:'files(id,name)',spaces:'drive'});if(r.result.files?.length){driveFileId=r.result.files[0].id;msg('تم العثور على الملف','اضغط تحميل من Drive لجلب بياناتك.')}else msg('لا يوجد ملف بيانات','أضف بيانات ثم اضغط حفظ إلى Drive لإنشاء الملف.')}catch(e){msg('فشل البحث في Drive',e.message||'تحقق من Drive API والصلاحيات.')}}
