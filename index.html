@@ -39,7 +39,7 @@ function connected(){document.getElementById('dot').classList.add('ok');document
 function disconnected(){document.getElementById('dot').classList.remove('ok');document.getElementById('status').textContent='غير متصل — سجّل دخول Google';document.getElementById('signin').style.display='inline-block';document.getElementById('signout').style.display='none';document.getElementById('load').disabled=true;document.getElementById('save').disabled=true}
 async function init() {
   try {
-    if (!API_KEY || API_KEY === 'AIzaSyADx8qKvD-4nHAyi4r6yrqJJcaygDxohTw') {
+    if (!API_KEY || API_KEY === 'ضع api حقيقي هنا') {
       throw new Error(
         'لم يتم وضع API Key الحقيقي داخل ملف index.html'
       );
